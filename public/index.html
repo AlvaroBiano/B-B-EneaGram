@@ -276,6 +276,71 @@
   .type-desc h3 { font-size: 1.05rem; margin-bottom: 8px; color: var(--accent-light); }
 
   /* Animations */
+  
+  /* === RESPONSIVO PARA MOBILE === */
+  @media (max-width: 768px) {
+    .container { padding: 12px 12px 40px; }
+    .header h1 { font-size: 1.35rem; }
+    .header p { font-size: .85rem; }
+    .instructions { padding: 14px 16px; font-size: .85rem; line-height: 1.6; }
+    .form-card { grid-template-columns: 1fr; gap: 12px; padding: 14px 16px; }
+    .group-header { padding: 10px 14px; }
+    .group-header h2 { font-size: .95rem; }
+    .group-badge { width: 36px; height: 36px; font-size: 1rem; }
+    .question { padding: 12px 0; }
+    .question-text { font-size: .88rem; line-height: 1.5; }
+    .scale-legend { font-size: .68rem; }
+    .rating { gap: 0; }
+    .rating label { flex: 1; padding: 6px 0; min-width: 0; }
+    .rating-num { width: 26px; height: 26px; font-size: .9rem; }
+    .rating-label { font-size: .55rem; }
+    .btn { padding: 11px 18px; font-size: .92rem; }
+    .btn-row { flex-direction: column; gap: 10px; }
+    .btn-row .btn { width: 100%; }
+    .progress-info { font-size: .75rem; }
+    .missing-warning { font-size: .85rem; padding: 12px 16px; }
+    .result-card { padding: 18px 16px; }
+    .result-card h2 { font-size: 1.15rem; }
+    .dominant-type { padding: 16px; }
+    .dominant-type .big-number { font-size: 3.5rem; }
+    .dominant-type .type-name { font-size: 1.1rem; }
+    .results-table { font-size: .78rem; }
+    .results-table th, .results-table td { padding: 6px 8px; }
+    .modal { padding: 20px 18px; max-width: 92vw; }
+    .modal h3 { font-size: 1.05rem; }
+    .modal p { font-size: .85rem; }
+    .modal-actions { flex-direction: column-reverse; gap: 8px; }
+    .modal .btn { width: 100%; }
+    .admin-record { padding: 10px 12px; }
+    .admin-record .rec-name { font-size: .95rem; }
+    .admin-record .tipo-linha { gap: 4px; }
+    .admin-record .tipo-badge { font-size: .68rem; padding: 2px 6px; }
+    .admin-record .tipo-nome { font-size: .78rem; }
+    .admin-record .tipo-pct { font-size: .88rem; }
+    .tabs { flex-wrap: wrap; gap: 4px; }
+    .tab-btn { padding: 8px 10px; font-size: .82rem; flex: 1; min-width: 0; }
+    .admin-pagination { gap: 4px; }
+    .admin-pagination button { padding: 5px 9px; font-size: .75rem; }
+    .admin-pagination .info { font-size: .7rem; padding: 0 4px; }
+    .admin-profile-form { max-width: 100%; }
+    .admin-profile-form input { font-size: .92rem; padding: 9px 12px; }
+    .bar-label { width: 130px; font-size: .78rem; }
+    .bar-pct { width: 40px; font-size: .8rem; }
+    .bar-fill { padding-right: 4px; font-size: .72rem; }
+  }
+  
+  @media (max-width: 420px) {
+    .container { padding: 10px 8px 32px; }
+    .header h1 { font-size: 1.2rem; }
+    .form-card { padding: 12px; }
+    .dominant-type .big-number { font-size: 3rem; }
+    .rating-label { display: none; }
+    .rating-num { width: 32px; height: 32px; font-size: 1rem; }
+  }
+  
+  /* Touch: evita zoom acidental ao tocar nos botões */
+  .btn, .tab-btn, .rating label { -webkit-tap-highlight-color: transparent; }
+
   @keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
   .fade-in { animation: fadeIn .5s ease forwards; }
 

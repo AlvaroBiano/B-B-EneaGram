@@ -14,7 +14,10 @@ const { DatabaseSync } = require('node:sqlite');
 
 const PORT = process.env.PORT || 3911;
 const PUBLIC_DIR = path.join(__dirname, 'public');
-const DB_PATH = process.env.DB_PATH || '/data/eneagrama.db';
+// DB_PATH: /var/data/eneagrama.db com persistent disk (Render Standard+)
+//          /data/eneagrama.db no Fly.io (volume)
+//          /tmp/eneagrama.db como fallback (Render Free sem persistent disk)
+const DB_PATH = process.env.DB_PATH || '/tmp/eneagrama.db';
 
 // ---- Chromium headless (compatível com Fly.io/Lambda) ----
 let chromium;
