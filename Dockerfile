@@ -1,4 +1,4 @@
-FROM node:20-slim
+FROM node:22-slim
 
 # Chromium dependencies for @sparticuz/chromium
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -31,7 +31,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 ENV NODE_ENV=production
 ENV PORT=8080
-ENV DB_PATH=/data/eneagrama.db
+# Render usa porta 10000 — definido via env var
+# Render persistent disk em /var/data — Fly.io usa /data
+ENV DB_PATH=/var/data/eneagrama.db
 
 WORKDIR /app
 
@@ -44,10 +46,12 @@ RUN npm install --omit=dev
 # Copy the rest of the application
 COPY . ./
 
-# Fly.io will provide a volume mounted at /data for SQLite persistence.
-# We create the directory so the app can start even before volume is mounted.
-RUN mkdir -p /data
+# Cria diretórios pra volumes persistentes (Fly.io: /data, Render: /var/data)
+# O app pode iniciar antes do volume ser montado.
+RUN mkdir -p /data /var/data
 
 EXPOSE 8080
+# Render expõe 10000 por padrão
+EXPOSE 10000
 
 CMD ["node", "server.js"]
