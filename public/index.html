@@ -34,8 +34,8 @@
 
   /* Header */
   .header { text-align: center; margin-bottom: 32px; }
-  .header h1 { font-size: 1.8rem; font-weight: 700; background: linear-gradient(135deg, var(--accent-light), #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-  .header p { color: var(--muted); font-size: .95rem; margin-top: 8px; max-width: 600px; margin-left: auto; margin-right: auto; }
+  .header h1 { font-size: 1.8rem; font-weight: 700; background: linear-gradient(135deg, var(--accent-light), #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.15; max-width: 100%; box-sizing: border-box; }
+  .header p { color: var(--muted); font-size: .95rem; margin-top: 8px; max-width: 600px; margin-left: auto; margin-right: auto; box-sizing: border-box; padding: 0 4px; }
 
   /* Instructions */
   .instructions {
@@ -336,6 +336,11 @@
   
   @media (max-width: 420px) {
     .container { padding: 10px 8px 32px; }
+    .header h1 { font-size: 1.05rem; }
+    .header p { font-size: .78rem; }
+    .instructions { padding: 10px 12px; font-size: .78rem; }
+    .question-text { font-size: .82rem; line-height: 1.45; }
+    .rating-label { font-size: .5rem; }
     .header h1 { font-size: 1.2rem; }
     .form-card { padding: 12px; }
     .dominant-type .big-number { font-size: 3rem; }
