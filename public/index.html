@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teste de Personalidade – Eneagrama</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --surface: #1e293b;
+    --card: #334155;
+    --accent: #6366f1;
+    --accent-light: #818cf8;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --border: #475569;
+    --success: #22c55e;
+    --danger: #ef4444;
+    --radius: 12px;
+    --shadow: 0 4px 24px rgba(0,0,0,.4);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+  .container { max-width: 820px; margin: 0 auto; padding: 24px 16px 60px; }
+
+  /* Header */
+  .header { text-align: center; margin-bottom: 32px; }
+  .header h1 { font-size: 1.8rem; font-weight: 700; background: linear-gradient(135deg, var(--accent-light), #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .header p { color: var(--muted); font-size: .95rem; margin-top: 8px; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+  /* Instructions */
+  .instructions {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 28px;
+    font-size: .92rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .instructions strong { color: var(--text); }
+
+  /* Progress */
+  .progress-bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--bg);
+    padding: 12px 0 8px;
+    margin-bottom: 16px;
+  }
+  .progress-info { display:flex; justify-content:space-between; font-size:.82rem; color:var(--muted); margin-bottom:6px; }
+  .progress-track { width:100%; height:8px; background:var(--card); border-radius:4px; overflow:hidden; }
+  .progress-fill { height:100%; background: linear-gradient(90deg, var(--accent), #a78bfa); border-radius:4px; transition: width .4s ease; }
+
+  /* Group */
+  .group { margin-bottom: 36px; }
+  .group-header {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius) var(--radius) 0 0;
+    padding: 14px 20px;
+  }
+  .group-badge {
+    width: 44px; height: 44px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .group-label h2 { font-size: 1.05rem; font-weight: 600; }
+  .group-label span { font-size: .82rem; color: var(--muted); }
+  .questions-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 var(--radius) var(--radius);
+    padding: 0 20px 20px;
+  }
+
+  /* Question */
+  .question { padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .question:last-child { border-bottom: none; }
+  .question-text { font-size: .93rem; margin-bottom: 10px; line-height: 1.6; }
+  .question-id { color: var(--accent-light); font-weight: 600; }
+
+  /* Rating */
+  .rating { display: flex; gap: 0; align-items: stretch; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+  .rating label {
+    flex: 1;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 8px 2px;
+    cursor: pointer;
+    transition: all .2s;
+    background: var(--card);
+    font-size: .78rem;
+    color: var(--muted);
+    min-width: 0;
+  }
+  .rating label:hover { background: #3b4a63; }
+  .rating input { display: none; }
+  .rating input:checked + .rating-num {
+    background: var(--accent);
+    color: #fff;
+    border-radius: 6px;
+    transform: scale(1.08);
+  }
+  .rating-num {
+    font-weight: 700; font-size: 1rem;
+    width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    transition: all .2s;
+    margin-bottom: 2px;
+  }
+  .rating-label { font-size: .65rem; white-space: nowrap; }
+
+  /* Scale legend */
+  .scale-legend {
+    display: flex; justify-content: space-between;
+    font-size: .72rem; color: var(--muted);
+    padding: 0 4px; margin-bottom: 8px;
+  }
+
+  /* Buttons */
+  .btn-row { display:flex; gap:12px; justify-content:center; margin-top:32px; }
+  .btn {
+    padding: 14px 36px;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--accent), #7c3aed);
+    color: #fff;
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(99,102,241,.4); }
+  .btn-secondary {
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover { background: var(--border); }
+  .btn:disabled { opacity: .4; cursor: not-allowed; transform: none !important; }
+
+  /* Results */
+  #results { display: none; }
+  .result-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .result-card h2 { font-size: 1.3rem; margin-bottom: 4px; }
+  .result-card .subtitle { color: var(--muted); font-size: .9rem; margin-bottom: 20px; }
+
+  .dominant-type {
+    background: linear-gradient(135deg, rgba(99,102,241,.15), rgba(124,58,237,.15));
+    border: 1px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 24px;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .dominant-type .big-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent-light), #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .dominant-type .type-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+  .dominant-type .score-line {
+    font-size: 1rem;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+
+  /* Bar chart */
+  .bar-chart { margin-top: 20px; }
+  .bar-row {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 12px;
+  }
+  .bar-label {
+    width: 120px; flex-shrink:0;
+    font-size: .85rem;
+    text-align: right;
+  }
+  .bar-track {
+    flex: 1; height: 28px;
+    background: var(--card);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width .8s ease;
+    display: flex; align-items: center; justify-content: flex-end;
+    padding-right: 8px;
+    font-size: .78rem;
+    font-weight: 600;
+    color: #fff;
+    min-width: 40px;
+  }
+  .bar-pct {
+    width: 50px;
+    text-align: right;
+    font-size: .85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  /* Table */
+  .results-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    font-size: .85rem;
+  }
+  .results-table th {
+    background: var(--card);
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid var(--border);
+  }
+  .results-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .results-table tr:hover td { background: rgba(99,102,241,.08); }
+  .highlight-row td { background: rgba(99,102,241,.12) !important; font-weight: 600; }
+
+  /* Legal */
+  .legal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-top: 24px;
+    font-size: .8rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .legal strong { color: var(--text); }
+
+  /* Type descriptions */
+  .type-desc {
+    margin-top: 20px;
+    padding: 16px 20px;
+    background: var(--card);
+    border-radius: var(--radius);
+    font-size: .9rem;
+    line-height: 1.7;
+  }
+  .type-desc h3 { font-size: 1.05rem; margin-bottom: 8px; color: var(--accent-light); }
+
+  /* Animations */
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-in { animation: fadeIn .5s ease forwards; }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .container { padding: 16px 10px 40px; }
+    .header h1 { font-size: 1.4rem; }
+    .rating { flex-wrap: wrap; }
+    .rating label { flex: 0 0 20%; }
+    .bar-label { width: 90px; font-size: .78rem; }
+    .bar-pct { width: 40px; font-size: .78rem; }
+    .dominant-type .big-number { font-size: 2.5rem; }
+  }
+
+  /* Missing warning */
+  .missing-warning {
+    background: rgba(239,68,68,.12);
+    border: 1px solid var(--danger);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-top: 16px;
+    font-size: .9rem;
+    color: #fca5a5;
+    display: none;
+  }
+  .missing-warning strong { color: #f87171; }
+
+  /* Formulário do participante */
+  .form-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: stretch;
+  }
+  .form-card label { display: flex; flex-direction: column; gap: 6px; font-size: .88rem; color: var(--muted); font-weight: 600; min-width:0; }
+  .form-card label > span.req { display:inline; }
+  .form-card input {
+    width: 100%;
+    box-sizing: border-box;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    color: var(--text);
+    font-size: .95rem;
+    transition: border-color .2s;
+  }
+  .form-card input:focus { outline: none; border-color: var(--accent); }
+  @media (max-width:600px){ .form-card{ grid-template-columns:1fr; } }
+
+
+  /* Modal base */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,.7);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 1000; opacity: 0; visibility: hidden;
+    transition: opacity .2s, visibility .2s;
+  }
+  .modal-overlay.open { opacity: 1; visibility: visible; }
+  .modal {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 28px 32px; max-width: 480px;
+    width: 90%; box-shadow: var(--shadow);
+    transform: translateY(16px); transition: transform .2s;
+  }
+  .modal-overlay.open .modal { transform: translateY(0); }
+  .modal h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; color: var(--text); }
+  .modal p { color: var(--muted); font-size: .92rem; line-height: 1.6; margin-bottom: 10px; }
+  .modal p strong { color: var(--text); }
+  .modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
+  .modal .btn { min-width: 110px; }
+  
+  /* Admin panel */
+  .admin-panel { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border); }
+  .admin-panel h3 { font-size: 1rem; font-weight: 600; margin-bottom: 16px; }
+  .admin-login-form { display: flex; flex-direction: column; gap: 12px; max-width: 320px; }
+  .admin-login-form label { display: flex; flex-direction: column; gap: 4px; font-size: .85rem; color: var(--muted); font-weight: 600; }
+  .admin-login-form input { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; color: var(--text); font-size: .95rem; }
+  .admin-records { max-height: 400px; overflow-y: auto; }
+  .admin-record { padding: 12px 14px; border-bottom: 1px solid var(--border); font-size: .85rem; }
+  .admin-record:last-child { border-bottom: none; }
+  .admin-record .rec-name { font-weight: 600; color: var(--text); }
+  .admin-record .rec-meta { color: var(--muted); font-size: .78rem; margin-top: 2px; }
+  .admin-record .rec-dominant { margin-top: 6px; display: flex; flex-direction: column; gap: 6px; }
+  .admin-record .tipo-linha { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .admin-record .tipo-badge { background: var(--accent); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: .72rem; font-weight: 700; }
+  .admin-record .tipo-nome { font-weight: 600; color: var(--text); font-size: .85rem; }
+  .admin-record .tipo-pct { color: #fbbf24; font-weight: 800; font-size: .95rem; margin-left: 4px; text-shadow: 0 0 6px rgba(251,191,36,.25); }
+  .admin-record .rec-actions { margin-top: 10px; display: flex; gap: 6px; }
+  .admin-record .rec-actions button { padding: 4px 10px; font-size: .75rem; border-radius: 6px; border: none; cursor: pointer; }
+  .admin-record .btn-delete { background: var(--danger); color: #fff; }
+  .admin-record .btn-delete:hover { background: #c82333; }
+  
+  /* Abas */
+  .tabs { display: flex; gap: 6px; border-bottom: 2px solid var(--border); margin-bottom: 16px; align-items: center; }
+  .tab-btn { background: transparent; border: none; padding: 10px 16px; cursor: pointer; color: var(--muted); font-size: .88rem; font-weight: 600; transition: all .2s; border-bottom: 2px solid transparent; margin-bottom: -2px; }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active { color: var(--accent-light); border-bottom-color: var(--accent); }
+  
+  /* Paginação */
+  .admin-pagination { display: flex; gap: 6px; justify-content: center; margin-top: 14px; flex-wrap: wrap; }
+  .admin-pagination button { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: .82rem; }
+  .admin-pagination button:hover { background: var(--accent); }
+  .admin-pagination button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .admin-pagination button:disabled { opacity: .4; cursor: not-allowed; }
+  .admin-pagination .info { color: var(--muted); font-size: .78rem; align-self: center; padding: 0 8px; }
+  
+  /* Perfil admin */
+  .admin-profile-form { display: flex; flex-direction: column; gap: 14px; max-width: 360px; }
+  .admin-profile-form label { display: flex; flex-direction: column; gap: 4px; font-size: .85rem; color: var(--muted); font-weight: 600; }
+  .admin-profile-form input { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; color: var(--text); font-size: .92rem; }
+  .admin-profile-form input:disabled { opacity: .6; }
+  .admin-profile-form .btn { margin-top: 6px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>Teste de Personalidade – Eneagrama</h1>
+    <p>45 afirmações · 9 tipos · Descubra sua tendência dominante</p>
+    <button class="btn btn-secondary" style="margin-top:12px;font-size:.8rem;padding:8px 14px;" onclick="openModalAdmin()">🔐 Área administrativa</button>
+  </div>
+
+
+  <div class="form-card">
+    <label>Nome completo 
+      <input type="text" id="fieldNome" placeholder="Digite seu nome completo" autocomplete="name">
+    </label>
+    <label>Telefone celular (WhatsApp)
+      <input type="tel" id="fieldWhats" placeholder="(00) 00000-0000" autocomplete="tel">
+    </label>
+  </div>
+
+  <div class="instructions">
+    <strong>Instruções:</strong> Este questionário contém 45 afirmações. Leia cada item com calma e atribua uma nota de 0 a 5, considerando o quanto a afirmação descreve seu comportamento habitual, em diferentes situações e ao longo do tempo. Quanto maior a nota, maior a identificação: <strong>0</strong> = "não me descreve"; <strong>5</strong> = "descreve-me totalmente". Responda com sinceridade. A interpretação vale para qualquer gênero e indica tendências relativas — não é um diagnóstico clínico.
+  </div>
+
+  <div class="progress-bar" id="progressBar">
+    <div class="progress-info">
+      <span id="progressText">0 / 45 respondidas</span>
+      <span id="progressPct">0%</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill" style="width:0%"></div>
+    </div>
+  </div>
+
+  <div id="questionnaire"></div>
+
+  <div class="missing-warning" id="missingWarning">
+    <strong>⚠️ Atenção:</strong> Você ainda não respondeu todas as afirmações. Preencha todas antes de calcular o resultado.
+  </div>
+
+  <div class="btn-row">
+    <button class="btn btn-secondary" onclick="resetAll()">Limpar tudo</button>
+    <button class="btn btn-primary" id="submitBtn" onclick="calculate()">Ver resultado</button>
+  </div>
+
+  <div id="results"></div>
+</div>
+
+<script>
+const TYPES = [
+  { letter:'A', num:9, name:'Pacificador',    color:'#22c55e' },
+  { letter:'B', num:1, name:'Perfeccionista', color:'#eab308' },
+  { letter:'C', num:2, name:'Ajudador',       color:'#f97316' },
+  { letter:'D', num:3, name:'Realizador',     color:'#ef4444' },
+  { letter:'E', num:4, name:'Individualista',  color:'#a855f7' },
+  { letter:'F', num:5, name:'Observador',      color:'#3b82f6' },
+  { letter:'G', num:6, name:'Leal',            color:'#06b6d4' },
+  { letter:'H', num:7, name:'Entusiasta',      color:'#ec4899' },
+  { letter:'I', num:8, name:'Desafiador',      color:'#8b5cf6' },
+];
+
+const QUESTIONS = {
+  A: [
+    'A maioria das pessoas o considera alguém pacífico, que se relaciona bem com quase todos. Você costuma ouvir com atenção e demonstrar simpatia, inclusive com quem acabou de conhecer. Gosta de conversar e de tratar as pessoas com cordialidade.',
+    'Você prefere tomar decisões por consenso e considera importante ouvir a opinião de todos os envolvidos. Negociar e mediar são habilidades naturais para você. Não aprecia decisões autoritárias e esse também não costuma ser o seu estilo.',
+    'Sem planejamento, você pode se distrair com facilidade, mesmo diante de tarefas importantes. Uma agenda ajuda a organizar suas prioridades. Quando alguém o interrompe e pede ajuda, você tem dificuldade para dizer "não" e pode acabar priorizando as demandas alheias, sobrecarregando-se.',
+    'Você valoriza o grupo e o trabalho em equipe. Prefere atuar com outras pessoas a realizar tudo de forma isolada e acredita que as vitórias pertencem ao grupo. Sente desconforto quando é colocado em destaque como o melhor da equipe.',
+    'Muitas vezes, você aceita a decisão de outras pessoas para evitar conflitos. Mesmo deixando seus próprios desejos de lado, consegue convencer-se de que eles não são tão importantes.'
+  ],
+  B: [
+    'Você tende a ser crítico consigo mesmo e com as outras pessoas e, em geral, não aprecia receber críticas.',
+    'Você gosta de manter as coisas organizadas e em seus devidos lugares. A desordem costuma incomodá-lo, especialmente quando alguém mexe em algo que você arrumou.',
+    'Você tem pouca tolerância a erros, tanto seus quanto dos outros, e tende a se culpar quando comete um engano.',
+    'Para você, não existe trabalho "mais ou menos": ou ele está bem feito, ou não está. Você considera importante entregar tudo com alto padrão de qualidade e atenção aos detalhes.',
+    'Você costuma irritar-se com pessoas irresponsáveis ou pouco comprometidas. Para você, cumprir compromissos é algo fundamental.'
+  ],
+  C: [
+    'Você gosta de ajudar as pessoas, especialmente aquelas que são importantes para você. Com frequência, dedica-se além do necessário para apoiá-las, elogiá-las e reconhecer suas qualidades.',
+    'Você se dedica tanto às outras pessoas que, às vezes, acaba negligenciando o próprio cuidado. Parece faltar tempo para atender às suas necessidades, e é mais fácil para você perceber e atender às necessidades dos outros.',
+    'Você sente dificuldade para dizer "não" a alguém próximo que precisa de sua ajuda, pois se preocupa em magoar essa pessoa ou com a forma como ela interpretará sua recusa.',
+    'Você sente dificuldade para pedir diretamente carinho, atenção ou presentes. Acredita que as pessoas deveriam perceber quando você precisa disso, assim como você procura perceber as necessidades delas.',
+    'Você é naturalmente carinhoso e atencioso e valoriza os relacionamentos pessoais, inclusive no ambiente de trabalho. É comum transformar colegas em amigos e assumir o papel de conselheiro ou confidente.'
+  ],
+  D: [
+    'Para você, é importante participar de uma competição com o objetivo de vencer. Costuma empenhar-se para alcançar a vitória e valoriza ser reconhecido pelas realizações. Seu foco em resultados é elevado.',
+    'Você costuma impressionar as pessoas por sua capacidade de superar desafios e conquistar resultados rapidamente. Em geral, alcança seus objetivos e estabelece metas ambiciosas.',
+    'Você costuma falar com segurança sobre suas qualidades e realizações, mas não costuma destacar seus pontos fracos ou fracassos. Para você, é importante transmitir uma imagem de sucesso.',
+    'Você tem grande habilidade para adaptar seu comportamento a diferentes contextos, especialmente quando isso favorece sua imagem ou seus objetivos. Algumas pessoas podem perceber diferenças na forma como você age em casa, no trabalho e em outros ambientes.',
+    'Você é uma pessoa acelerada e costuma ter pouca paciência com quem considera lento, especialmente quando essa lentidão pode prejudicar uma meta ou afetar sua imagem, a da equipe ou a da empresa.'
+  ],
+  E: [
+    'As atividades que você realiza e o trabalho que exerce precisam ter um significado que vá além da simples sobrevivência. Fazer algo apenas por obrigação ou seguir rotinas sem propósito não o motiva. Você precisa sentir que é valorizado em sua singularidade.',
+    'Seu humor tende a mudar com mais facilidade e rapidez do que o da maioria das pessoas. Você pode estar contente em um momento e desanimado no seguinte, às vezes sem compreender exatamente o motivo.',
+    'Você não gosta de se sentir igual às demais pessoas. Valoriza ser diferente em algum aspecto e sente-se especial por isso, atraindo a atenção dos outros de alguma maneira.',
+    'Algumas pessoas o consideram emocionalmente dramático. Você sente emoções intensas, ainda que nem sempre as demonstre, e tende a voltar-se para o próprio mundo interior quando elas surgem. Em geral, acredita que os outros compreendem bem esse seu modo de sentir.',
+    'É comum você idealizar uma situação antes que ela aconteça, como uma viagem ou um relacionamento. Quando a experiência se concretiza, muitas vezes ela não corresponde ao que imaginava, e seu desejo pode diminuir logo depois de alcançar o que queria.'
+  ],
+  F: [
+    'Você é uma pessoa racional e analítica. Acredita que decisões bem tomadas dependem de análise lógica e inteligência, e tende a considerar que reações muito emotivas ou exageradas podem comprometer a qualidade das decisões.',
+    'Você aprecia reservar algum tempo sozinho todos os dias para refletir e recuperar as energias. Algumas pessoas podem interpretar isso como isolamento, mas você se sente bem nesses momentos de recolhimento.',
+    'Você valoriza muito o conhecimento, a ciência e a informação. Busca aprender continuamente por meio de leitura, estudo, pesquisa e reflexão, e admira pessoas inteligentes.',
+    'Você não gosta que seu espaço pessoal seja invadido sem aviso e se incomoda quando alguém se aproxima demais ou toca em você enquanto fala. Também prefere evitar conversas em tom excessivamente alto ou assuntos superficiais com pessoas que ainda não conhece.',
+    'Você gosta de resolver problemas, charadas e quebra-cabeças que exigem raciocínio. Tem curiosidade para entender como as coisas funcionam e prefere encontrar soluções por conta própria antes de pedir ajuda.'
+  ],
+  G: [
+    'Você é uma pessoa precavida e costuma pensar antecipadamente nas possibilidades. Antes de viajar para um lugar novo, por exemplo, prefere consultar o mapa, conhecer o percurso e planejar-se, inclusive considerando eventuais imprevistos.',
+    'Para você, é importante ver evidências antes de acreditar. Algumas pessoas o consideram cético por exigir comprovações, e você costuma identificar rapidamente riscos e problemas em ideias ou projetos muito otimistas.',
+    'Você leva tempo para confiar nas pessoas e considera prudente observar seu comportamento, especialmente quando ainda não as conhece bem. Mesmo depois de criar proximidade, às vezes sente necessidade de confirmar se está tudo bem.',
+    'Você tende a sentir ansiedade diante da possibilidade de algo dar errado. Quando não se considera suficientemente preparado ou não dispõe do tempo desejado para se preparar, sua preocupação aumenta e surgem pensamentos recorrentes, como "E se isso acontecer?"',
+    'Você costuma duvidar da própria competência, mesmo quando os outros reconhecem sua capacidade. Às vezes, busca confirmação de que está no caminho certo e pode questionar seu desempenho ao assumir uma posição de autoridade.'
+  ],
+  H: [
+    'Você aprecia novidades e aventuras. Prefere aprender coisas diferentes e inovadoras, mantém a mente aberta a novas tendências e considera importante viver experiências variadas. Para você, quanto mais experiências, melhor.',
+    'É fundamental para você gostar do que faz, inclusive no trabalho. Você procura manter prazer, lazer e diversão em sua rotina. Quando uma tarefa deixa de ser agradável, tende a adiá-la ou abandoná-la para iniciar algo novo.',
+    'Você está acostumado a realizar várias atividades ao mesmo tempo. Sente dificuldade quando precisa concluir uma tarefa antes de iniciar outra e costuma ler, estudar ou lidar com assuntos diferentes simultaneamente.',
+    'Você é otimista e costuma enxergar o lado positivo das situações. Sente desconforto diante de pessoas muito negativas ou tristes e tende a animá-las ou a se afastar. Algumas pessoas acham que você deveria ser mais realista, mas você valoriza manter uma visão esperançosa e ampla.',
+    'Você valoriza a liberdade acima de tudo. Tende a ter menos preconceitos e considera importante que cada pessoa possa escolher como viver. Compromissos muito longos ou pessoas excessivamente dependentes podem fazê-lo sentir-se limitado ou desconfortável.'
+  ],
+  I: [
+    'Você é uma pessoa direta e não gosta de rodeios. Prefere que as pessoas vão ao ponto. Seu estilo assertivo e firme já fez com que alguns o considerassem agressivo ou se sentissem ofendidos; ainda assim, você tende a interpretar essas reações como exageradas.',
+    'Você acredita que pessoas mais fortes ou poderosas podem abusar das mais vulneráveis. Considera isso injusto e, por vezes, envolve-se em conflitos para defender quem julga estar em desvantagem. Os outros costumam percebê-lo como uma pessoa forte e determinada.',
+    'Você causa impacto nas pessoas mesmo sem essa intenção. Seu tom de voz é naturalmente alto e, algumas vezes, os outros interpretam sua fala como se estivesse gritando, embora esse seja apenas o seu modo habitual de se expressar.',
+    'Você tende a agir imediatamente. Enquanto outras pessoas ainda estão pensando ou analisando, seu impulso é começar — e com rapidez. Às vezes, essa pressa pode fazê-lo atropelar os outros, impacientar-se com esperas ou dizer e fazer algo antes de refletir.',
+    'Você não sente necessidade de agradar a todos. É muito franco e tende a dizer o que considera necessário, independentemente de como os outros reagirão. Essa postura já lhe causou dificuldades no passado.'
+  ]
+};
+
+let answered = 0;
+const totalQ = 45;
+
+function buildQuestionnaire() {
+  const container = document.getElementById('questionnaire');
+  let html = '';
+  TYPES.forEach(t => {
+    const qs = QUESTIONS[t.letter];
+    html += `<div class="group" id="group-${t.letter}">`;
+    html += `<div class="group-header">`;
+    html += `<div class="group-badge" style="background:${t.color}">${t.letter}</div>`;
+    html += `<div class="group-label"><h2>Grupo ${t.letter}</h2><span>${qs.length} afirmações</span></div>`;
+    html += `</div>`;
+    html += `<div class="questions-card">`;
+    qs.forEach((q, i) => {
+      const id = `${t.letter}${i+1}`;
+      html += `<div class="question">`;
+      html += `<p class="question-text"><span class="question-id">${id}.</span> ${q}</p>`;
+      html += `<div class="scale-legend"><span>0 — não me descreve</span><span>5 — me descreve totalmente</span></div>`;
+      html += `<div class="rating">`;
+      for (let v=0; v<=5; v++) {
+        const labels = ['não me descreve','quase não me descreve','me descreve um pouco','me descreve','me descreve muito','me descreve totalmente'];
+        html += `<label onclick="markAnswered('${id}')">`;
+        html += `<input type="radio" name="q${id}" value="${v}">`;
+        html += `<span class="rating-num">${v}</span>`;
+        html += `<span class="rating-label">${labels[v]}</span>`;
+        html += `</label>`;
+      }
+      html += `</div></div>`;
+    });
+    html += `</div></div>`;
+  });
+  container.innerHTML = html;
+}
+
+const answeredSet = new Set();
+function markAnswered(id) {
+  if (!answeredSet.has(id)) {
+    answeredSet.add(id);
+    answered++;
+    updateProgress();
+  }
+}
+
+function updateProgress() {
+  const pct = Math.round(answered / totalQ * 100);
+  document.getElementById('progressText').textContent = `${answered} / ${totalQ} respondidas`;
+  document.getElementById('progressPct').textContent = `${pct}%`;
+  document.getElementById('progressFill').style.width = `${pct}%`;
+}
+
+function calculate() {
+  // Se já passou pela confirmação, prossegue direto
+  if (window.__confirmado) {
+    window.__confirmado = false;
+  } else {
+    openModalConfirm();
+    return;
+  }
+  if (answered < totalQ) {
+    const missing = totalQ - answered;
+    document.getElementById('missingWarning').style.display = 'block';
+    document.getElementById('missingWarning').innerHTML = `<strong>⚠️ Atenção:</strong> Faltam ${missing} afirmação${missing>1?'s':''} sem resposta. Preencha todas antes de ver o resultado.`;
+    document.getElementById('missingWarning').scrollIntoView({behavior:'smooth'});
+    return;
+  }
+  document.getElementById('missingWarning').style.display = 'none';
+
+  const results = TYPES.map(t => {
+    let total = 0;
+    const notes = [];
+    for (let i=1; i<=5; i++) {
+      const el = document.querySelector(`input[name="q${t.letter}${i}"]:checked`);
+      const val = el ? parseInt(el.value) : 0;
+      total += val;
+      notes.push(val);
+    }
+    return { ...t, notes, total, pct: total / 25 };
+  });
+
+  results.sort((a,b) => b.total - a.total);
+  window.__lastResults = results;
+  window.__lastDominant = results[0];
+  window.__lastTied = results.filter(r => r.total === results[0].total);
+  const dominant = results[0];
+  const tied = results.filter(r => r.total === dominant.total);
+
+  const barColors = TYPES.map(t => t.color);
+
+  let html = `<div class="result-card fade-in" style="margin-top:32px;">`;
+  html += `<h2>Seus Resultados</h2>`;
+  html += `<p class="subtitle">Análise completa das 9 tendências do Eneagrama</p>`;
+
+  // Dominant
+  html += `<div class="dominant-type">`;
+  html += `<div class="big-number">Tipo ${dominant.num}</div>`;
+  html += `<div class="type-name">${dominant.name}</div>`;
+  if (tied.length > 1) {
+    html += `<div class="score-line">Empate entre: ${tied.map(t=>`Tipo ${t.num} — ${t.name}`).join(', ')}</div>`;
+  }
+  html += `<div class="score-line">${dominant.total}/25 pontos · ${Math.round(dominant.pct*100)}%</div>`;
+  html += `</div>`;
+
+  // Bar chart
+  html += `<h3 style="margin-bottom:12px;font-size:1rem;">Gráfico comparativo</h3>`;
+  html += `<div class="bar-chart">`;
+  results.forEach(r => {
+    const pct = Math.round(r.pct * 100);
+    const isDom = r.total === dominant.total;
+    html += `<div class="bar-row">`;
+    html += `<div class="bar-label" style="${isDom?'font-weight:700;color:'+r.color:''}">Tipo ${r.num} — ${r.name}</div>`;
+    html += `<div class="bar-track">`;
+    html += `<div class="bar-fill" style="width:${pct}%;background:${r.color};${isDom?'box-shadow:0 0 12px '+r.color+'66':''}">${r.total}</div>`;
+    html += `</div>`;
+    html += `<div class="bar-pct" style="color:${isDom?r.color:'var(--muted)'}">${pct}%</div>`;
+    html += `</div>`;
+  });
+  html += `</div>`;
+
+  // Detail table
+  html += `<h3 style="margin:24px 0 8px;font-size:1rem;">Tabela detalhada</h3>`;
+  html += `<div style="overflow-x:auto;">`;
+  html += `<table class="results-table">`;
+  html += `<thead><tr><th>Grupo</th><th>A1</th><th>A2</th><th>A3</th><th>A4</th><th>A5</th><th>Total</th><th>%</th></tr></thead>`;
+  html += `<tbody>`;
+  TYPES.forEach(t => {
+    const r = results.find(x => x.letter === t.letter);
+    const isDom = r.total === dominant.total;
+    html += `<tr class="${isDom?'highlight-row':''}">`;
+    html += `<td style="font-weight:600;color:${t.color}">${t.letter} → ${t.num} (${t.name})</td>`;
+    r.notes.forEach(n => {
+      html += `<td>${n}</td>`;
+    });
+    html += `<td><strong>${r.total}</strong>/25</td>`;
+    html += `<td><strong>${Math.round(r.pct*100)}%</strong></td>`;
+    html += `</tr>`;
+  });
+  html += `</tbody></table></div>`;
+
+  // Legal
+  html += `<div class="legal">`;
+  html += `<strong>Aviso:</strong> As pontuações indicam tendências relativas entre os tipos. Resultados próximos ou empatados devem ser lidos em conjunto com as respostas — não como diagnóstico. A classificação é a mesma para qualquer gênero.`;
+  html += `</div>`;
+
+  html += `</div>`;
+
+  // Botão gerar PDF (envia pro servidor → gera PDF elegante)
+  html += `<div class="btn-row">`;
+  html += `<button class="btn btn-primary" id="pdfBtn" onclick="gerarPDF()">📄 Gerar PDF do resultado</button>`;
+  html += `<button class="btn btn-secondary" onclick="resetAll()">🔄 Refazer teste</button>`;
+  html += `</div>`;
+  html += `<div id="pdfStatus" style="margin-top:14px;font-size:.9rem;color:var(--muted);text-align:center;"></div>`;
+
+  document.getElementById('results').innerHTML = html;
+  document.getElementById('results').style.display = 'block';
+  document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+}
+
+
+function gerarPDF() {
+  const status = document.getElementById('pdfStatus');
+  if (!status) { status = document.createElement('div'); }
+  status.style.display = 'block';
+
+  const nome = (document.getElementById('fieldNome')?.value || '').trim();
+  const whats = (document.getElementById('fieldWhats')?.value || '').trim();
+
+  if (!nome) {
+    status.textContent = '⚠️ Preencha seu nome completo antes de gerar o PDF.';
+    status.style.color = 'var(--danger)';
+    document.getElementById('fieldNome').focus();
+    document.getElementById('fieldNome').scrollIntoView({behavior:'smooth'});
+    return;
+  }
+
+  const results = window.__lastResults;
+  if (!results) {
+    status.textContent = '⚠️ Responda o teste e clique em "Ver resultado" primeiro.';
+    status.style.color = 'var(--danger)';
+    return;
+  }
+  const dominant = window.__lastDominant;
+  const tied = window.__lastTied;
+
+  // Monta payload: respostas por grupo + totais + dominante + empate + % 
+  const respostas = {};
+  const totais = {};
+  const bars = [];
+  TYPES.forEach(t => {
+    const r = results.find(x => x.letter === t.letter);
+    respostas[t.letter] = r.notes;
+    totais[t.letter] = r.total;
+    bars.push({ num: t.num, name: t.name, pct: Math.round(r.pct*100), letter: t.letter });
+  });
+
+  const payload = {
+    nome,
+    whatsapp: whats,
+    respostas,
+    totais,
+    dominante: `${dominant.name}`,
+    empate: tied.length > 1 ? 1 : 0,
+    percentual: Math.round(dominant.pct * 100),
+    bars
+  };
+
+  // Feedback ao usuário
+  const domlabel = tied.length > 1
+    ? (`Tipo ${dominant.num} — ${dominant.name} (empate com ${tied.filter(x=>x.letter!==dominant.letter).length} outro(s))`)
+    : `Tipo ${dominant.num} — ${dominant.name}`;
+  payload.dominanteExibicao = tied.length > 1
+    ? tied.map(x => `Tipo ${x.num} — ${x.name}`).join(' / ')
+    : `Tipo ${dominant.num} — ${dominant.name}`;
+
+  status.textContent = '⏳ Gerando PDF...';
+  status.style.color = 'var(--muted)';
+
+  fetch('http://localhost:3911/api/enviar', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  .then(r => {
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return r.blob();
+  })
+  .then(blob => {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'Resultado-Eneagrama-' + nome.replace(/\W+/g,'-') + '.pdf';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    status.textContent = '✅ PDF gerado e baixado!';
+    status.style.color = 'var(--success)';
+  })
+  .catch(e => {
+    console.error(e);
+    status.textContent = '❌ Falha ao gerar PDF. Verifique se o servidor local está rodando (node server.js).';
+    status.style.color = 'var(--danger)';
+  });
+}
+
+function resetAll() {
+  document.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);
+  answeredSet.clear();
+  answered = 0;
+  updateProgress();
+  document.getElementById('results').innerHTML = '';
+  document.getElementById('results').style.display = 'none';
+  document.getElementById('missingWarning').style.display = 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+
+// --- Modais ---
+function openModalConfirm() {
+  document.getElementById('modalConfirm').classList.add('open');
+}
+function closeModalConfirm() {
+  document.getElementById('modalConfirm').classList.remove('open');
+}
+function confirmAndCalculate() {
+  closeModalConfirm();
+  window.__confirmado = true;
+  calculate();
+}
+
+function openModalAdmin() {
+  document.getElementById('modalAdmin').classList.add('open');
+  document.getElementById('adminUser').focus();
+}
+function closeModalAdmin() {
+  document.getElementById('modalAdmin').classList.remove('open');
+  document.getElementById('adminLoginForm').style.display = 'flex';
+  document.getElementById('adminPanel').style.display = 'none';
+  document.getElementById('adminUser').value = '';
+  document.getElementById('adminPass').value = '';
+}
+
+async function adminLogin() {
+  const user = document.getElementById('adminUser').value.trim();
+  const pass = document.getElementById('adminPass').value;
+  const errorEl = document.getElementById('adminLoginError');
+  errorEl.style.display = 'none';
+  try {
+    const res = await fetch('http://localhost:3911/api/admin/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ user, pass })
+    });
+    const data = await res.json();
+    if (!res.ok || !data.ok) {
+      errorEl.textContent = data.error || 'Login ou senha incorretos';
+      errorEl.style.display = 'block';
+      return;
+    }
+    document.getElementById('adminLoginForm').style.display = 'none';
+    document.getElementById('adminPanel').style.display = 'block';
+    adminLoadRecords();
+  } catch (e) {
+    errorEl.textContent = 'Erro ao conectar no servidor';
+    errorEl.style.display = 'block';
+  }
+}
+function adminLogout() {
+  closeModalAdmin();
+}
+
+let __currentPage = 1;
+
+function switchTab(name) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === name));
+  document.getElementById('tabRegistros').style.display = (name === 'registros') ? 'block' : 'none';
+  document.getElementById('tabPerfil').style.display = (name === 'perfil') ? 'block' : 'none';
+  if (name === 'perfil') loadAdminProfile();
+  if (name === 'registros') adminLoadRecords();
+}
+
+async function loadAdminProfile() {
+  // O login atual só fica visível depois de novo login; pegamos do sessionStorage
+  const cur = sessionStorage.getItem('adminLogin') || '—';
+  document.getElementById('currentLoginDisplay').value = cur;
+  document.getElementById('senhaAtual').value = '';
+  document.getElementById('novoLogin').value = '';
+  document.getElementById('novaSenha').value = '';
+  document.getElementById('profileMsg').style.display = 'none';
+}
+
+async function adminUpdateProfile() {
+  const msg = document.getElementById('profileMsg');
+  msg.style.display = 'block';
+  msg.style.color = 'var(--muted)';
+  msg.textContent = 'Salvando...';
+  const senha_atual = document.getElementById('senhaAtual').value;
+  const novo_login = document.getElementById('novoLogin').value.trim();
+  const nova_senha = document.getElementById('novaSenha').value;
+  if (!senha_atual || !novo_login || !nova_senha) {
+    msg.style.color = 'var(--danger)';
+    msg.textContent = 'Preencha todos os campos';
+    return;
+  }
+  try {
+    const res = await fetch('http://localhost:3911/api/admin/atualizar', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ senha_atual, novo_login, nova_senha })
+    });
+    const data = await res.json();
+    if (!res.ok || !data.ok) {
+      msg.style.color = 'var(--danger)';
+      msg.textContent = data.error || 'Erro ao atualizar';
+      return;
+    }
+    sessionStorage.setItem('adminLogin', data.login);
+    msg.style.color = 'var(--success)';
+    msg.textContent = '✅ Login e senha atualizados!';
+    document.getElementById('currentLoginDisplay').value = data.login;
+    document.getElementById('senhaAtual').value = '';
+    document.getElementById('novoLogin').value = '';
+    document.getElementById('novaSenha').value = '';
+  } catch (e) {
+    msg.style.color = 'var(--danger)';
+    msg.textContent = 'Erro: ' + e.message;
+  }
+}
+
+async function adminDeleteRecord(id, nome) {
+  if (!confirm('Excluir o registro de ' + nome + '? Esta ação não pode ser desfeita.')) return;
+  try {
+    const res = await fetch('http://localhost:3911/api/admin/registros/' + id, { method: 'DELETE' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    adminLoadRecords(__currentPage);
+  } catch (e) {
+    alert('Erro ao excluir: ' + e.message);
+  }
+}
+
+async function adminLoadRecords(page) {
+  page = page || 1;
+  __currentPage = page;
+  const container = document.getElementById('adminRecords');
+  const pagination = document.getElementById('adminPagination');
+  container.innerHTML = '<div style="text-align:center;padding:20px;color:var(--muted);">Carregando registros...</div>';
+  pagination.innerHTML = '';
+  try {
+    const res = await fetch('http://localhost:3911/api/admin/registros?page=' + page);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    if (!data.rows || !data.rows.length) {
+      container.innerHTML = '<div style="text-align:center;padding:20px;color:var(--muted);">Nenhum registro encontrado.</div>';
+      return;
+    }
+    container.innerHTML = data.rows.map(r => {
+      const safeNome = (r.nome || '').replace(/'/g, "\\'");
+      // Pega do array 'bars' (enviado pelo cliente) com num/name/pct — fallback parseando
+      let tipos;
+      if (Array.isArray(r.bars) && r.bars.length) {
+        tipos = r.bars.slice().sort((a,b) => b.pct - a.pct).map(b => ({ num: b.num, nome: b.name, pct: b.pct }));
+      } else {
+        const raw = r.dominante_exibicao || ('Tipo ? — ' + (r.dominante || ''));
+        const matches = [...raw.matchAll(/Tipo\s+(\d+)\s*[—–-]\s*([^/]+?)(?=\s*(?:\/|$))/g)];
+        tipos = matches.map(m => ({ num: m[1], nome: m[2].trim(), pct: r.percentual }));
+      }
+      const tiposHtml = tipos.map(t => `
+        <div class="tipo-linha">
+          <span class="tipo-badge">Tipo ${t.num}</span>
+          <span class="tipo-nome">${t.nome}</span>
+          <span class="tipo-pct">${t.pct}%</span>
+        </div>`).join('');
+      return `
+      <div class="admin-record">
+        <div class="rec-name">${r.nome}</div>
+        <div class="rec-meta">${r.whatsapp || '—'} · ${r.criado_em}</div>
+        <div class="rec-dominant">
+          ${tiposHtml}
+        </div>
+        <div class="rec-actions">
+          <button class="btn-delete" onclick="adminDeleteRecord(${r.id}, '${safeNome}')">🗑️ Excluir</button>
+        </div>
+      </div>`;
+    }).join('');
+    // Renderizar paginação
+    if (data.totalPages > 1) {
+      const pages = [];
+      pages.push(`<button ${page === 1 ? 'disabled' : ''} onclick="adminLoadRecords(${page-1})">« Anterior</button>`);
+      for (let p = 1; p <= data.totalPages; p++) {
+        pages.push(`<button class="${p === page ? 'active' : ''}" onclick="adminLoadRecords(${p})">${p}</button>`);
+      }
+      pages.push(`<button ${page === data.totalPages ? 'disabled' : ''} onclick="adminLoadRecords(${page+1})">Próxima »</button>`);
+      pages.push(`<span class="info">Página ${page} de ${data.totalPages} · ${data.total} registros</span>`);
+      pagination.innerHTML = pages.join('');
+    } else {
+      pagination.innerHTML = `<span class="info">${data.total} registro${data.total !== 1 ? 's' : ''}</span>`;
+    }
+  } catch (e) {
+    console.error(e);
+    container.innerHTML = '<div style="text-align:center;padding:20px;color:var(--danger);">Erro ao carregar: ' + e.message + '</div>';
+  }
+}
+
+// Fechar modais clicando no overlay
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('modal-overlay')) {
+    if (e.target.id === 'modalConfirm') closeModalConfirm();
+    if (e.target.id === 'modalAdmin') closeModalAdmin();
+  }
+});
+// ESC para fechar
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeModalConfirm();
+    closeModalAdmin();
+  }
+});
+
+buildQuestionnaire();
+</script>
+
+  <!-- Modal de confirmação antes de ver resultado -->
+  <div class="modal-overlay" id="modalConfirm" role="dialog" aria-modal="true" aria-labelledby="modalConfirmTitle">
+    <div class="modal">
+      <h3 id="modalConfirmTitle">⚠️ Confirmação antes de ver o resultado</h3>
+      <p><strong>Os dados enviados não poderão ser reajustados ou revistos.</strong> Uma vez confirmado, as respostas ficam gravadas definitivamente.</p>
+      <p>O envio de um novo teste <strong>não invalidará a resposta original</strong> — cada submissão gera um registro independente no banco de dados.</p>
+      <p>Deseja prosseguir para ver o resultado e gerar o PDF?</p>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" onclick="closeModalConfirm()">Cancelar</button>
+        <button class="btn btn-primary" onclick="confirmAndCalculate()">Confirmar e ver resultado</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de login administrativo -->
+  <div class="modal-overlay" id="modalAdmin" role="dialog" aria-modal="true" aria-labelledby="modalAdminTitle">
+    <div class="modal">
+      <h3 id="modalAdminTitle">🔐 Área Administrativa</h3>
+      <div id="adminLoginForm" class="admin-login-form">
+        <label>Login (superadmin)
+          <input type="text" id="adminUser" placeholder="Digite seu login" autocomplete="username">
+        </label>
+        <label>Senha
+          <input type="password" id="adminPass" placeholder="Digite sua senha" autocomplete="current-password">
+        </label>
+        <div id="adminLoginError" style="color:var(--danger);font-size:.82rem;display:none;"></div>
+        <button class="btn btn-primary" onclick="adminLogin()">Entrar</button>
+      </div>
+      <div id="adminPanel" class="admin-panel" style="display:none;">
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="registros" onclick="switchTab('registros')">📋 Registros</button>
+          <button class="tab-btn" data-tab="perfil" onclick="switchTab('perfil')">⚙️ Meu Perfil</button>
+          <button class="btn btn-secondary" style="margin-left:auto;padding:8px 14px;font-size:.8rem;" onclick="adminLogout()">Sair</button>
+        </div>
+        <div class="tab-content" id="tabRegistros">
+          <div id="adminRecords" class="admin-records">Carregando...</div>
+          <div id="adminPagination" class="admin-pagination"></div>
+        </div>
+        <div class="tab-content" id="tabPerfil" style="display:none;">
+          <div class="admin-profile-form">
+            <label>Login atual (somente leitura)
+              <input type="text" id="currentLoginDisplay" disabled>
+            </label>
+            <label>Senha atual
+              <input type="password" id="senhaAtual" placeholder="Digite sua senha atual">
+            </label>
+            <label>Novo login
+              <input type="text" id="novoLogin" placeholder="Novo login">
+            </label>
+            <label>Nova senha
+              <input type="password" id="novaSenha" placeholder="Nova senha">
+            </label>
+            <div id="profileMsg" style="display:none;font-size:.85rem;margin-top:8px;"></div>
+            <button class="btn btn-primary" onclick="adminUpdateProfile()">Salvar alterações</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
