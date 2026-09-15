@@ -97,7 +97,7 @@
   .question-id { color: var(--accent-light); font-weight: 600; }
 
   /* Rating */
-  .rating { display: flex; gap: 0; align-items: stretch; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+  .rating { display: flex; gap: 0; align-items: stretch; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); max-width: 100%; box-sizing: border-box; }
   .rating label {
     flex: 1;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -125,7 +125,7 @@
     transition: all .2s;
     margin-bottom: 2px;
   }
-  .rating-label { font-size: .65rem; white-space: nowrap; }
+  .rating-label { font-size: .65rem; white-space: normal; word-break: break-word; text-align: center; max-width: 60px; }
 
   /* Scale legend */
   .scale-legend {
@@ -292,11 +292,11 @@
     .group-badge { width: 36px; height: 36px; font-size: 1rem; }
     .question { padding: 12px 0; }
     .question-text { font-size: .88rem; line-height: 1.5; }
-    .scale-legend { font-size: .68rem; }
+    .scale-legend { font-size: .68rem; flex-wrap: wrap; gap: 4px; }
     .rating { flex-wrap: wrap; gap: 4px; border: 1px solid var(--border); }
     .rating label { flex: 1 1 calc(33.33% - 4px); padding: 8px 0; min-width: 50px; }
     .rating-num { width: 28px; height: 28px; font-size: .92rem; }
-    .rating-label { font-size: .6rem; }
+    .rating-label { font-size: .6rem; white-space: normal; max-width: 60px; text-align: center; }
     .rating-num { width: 26px; height: 26px; font-size: .9rem; }
     .rating-label { font-size: .55rem; }
     .btn { padding: 11px 18px; font-size: .92rem; }
