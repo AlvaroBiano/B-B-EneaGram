@@ -815,7 +815,7 @@ function gerarPDF() {
   status.textContent = '⏳ Gerando PDF...';
   status.style.color = 'var(--muted)';
 
-  fetch('http://localhost:3911/api/enviar', {
+  fetch('/api/enviar', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload)
@@ -886,7 +886,7 @@ async function adminLogin() {
   const errorEl = document.getElementById('adminLoginError');
   errorEl.style.display = 'none';
   try {
-    const res = await fetch('http://localhost:3911/api/admin/login', {
+    const res = await fetch('/api/admin/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ user, pass })
@@ -943,7 +943,7 @@ async function adminUpdateProfile() {
     return;
   }
   try {
-    const res = await fetch('http://localhost:3911/api/admin/atualizar', {
+    const res = await fetch('/api/admin/atualizar', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ senha_atual, novo_login, nova_senha })
@@ -970,7 +970,7 @@ async function adminUpdateProfile() {
 async function adminDeleteRecord(id, nome) {
   if (!confirm('Excluir o registro de ' + nome + '? Esta ação não pode ser desfeita.')) return;
   try {
-    const res = await fetch('http://localhost:3911/api/admin/registros/' + id, { method: 'DELETE' });
+    const res = await fetch('/api/admin/registros/' + id, { method: 'DELETE' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     adminLoadRecords(__currentPage);
   } catch (e) {
@@ -986,7 +986,7 @@ async function adminLoadRecords(page) {
   container.innerHTML = '<div style="text-align:center;padding:20px;color:var(--muted);">Carregando registros...</div>';
   pagination.innerHTML = '';
   try {
-    const res = await fetch('http://localhost:3911/api/admin/registros?page=' + page);
+    const res = await fetch('/api/admin/registros?page=' + page);
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
     if (!data.rows || !data.rows.length) {
