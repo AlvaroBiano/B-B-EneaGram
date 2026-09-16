@@ -37,17 +37,36 @@ function applyTranslations() {
   if (subEl) subEl.textContent = u.subtitle || subEl.textContent;
   const adminBtn = document.querySelector('.header button[onclick*="openModalAdmin"]');
   if (adminBtn) adminBtn.textContent = u.btn_admin || adminBtn.textContent;
-  const nameLabel = document.querySelector('label[for="fieldNome"], .form-card label:first-child');
-  if (nameLabel) {
-    const txt = (u.label_name || '') + ' *';
-    if (!nameLabel.querySelector('input')) nameLabel.firstChild.textContent = txt;
+  // Form: labels (label_name, label_phone) e placeholders
+  // Como label engloba o input, o primeiro text node contém o label
+  const labels = document.querySelectorAll('.form-card > label');
+  if (labels.length >= 1) {
+    // Label 1: Nome completo
+    // Mantém o " *" (asterisco do obrigatório) se existir
+    const l1 = labels[0];
+    const firstNode1 = Array.from(l1.childNodes).find(n => n.nodeType === 3); // text node
+    if (firstNode1) {
+      const temAsterisco = l1.querySelector('.req') !== null;
+      firstNode1.textContent = u.label_name + (temAsterisco ? ' ' : '');
+    }
   }
-  const phoneLabel = document.querySelector('label:has(#fieldWhats)') || document.querySelectorAll('.form-card label')[1];
-  if (phoneLabel && !phoneLabel.querySelector('input')) {
-    phoneLabel.firstChild.textContent = u.label_phone || phoneLabel.firstChild.textContent;
+  if (labels.length >= 2) {
+    // Label 2: Telefone celular (WhatsApp)
+    const l2 = labels[1];
+    const firstNode2 = Array.from(l2.childNodes).find(n => n.nodeType === 3);
+    if (firstNode2) {
+      firstNode2.textContent = u.label_phone + ' ';
+    }
+  }
+  // Placeholders do form
+  const nameInput = document.getElementById('fieldNome');
+  if (nameInput) {
+    nameInput.placeholder = u.label_name || nameInput.placeholder;
   }
   const phoneInput = document.getElementById('fieldWhats');
-  if (phoneInput) phoneInput.placeholder = u.phone_placeholder || phoneInput.placeholder;
+  if (phoneInput) {
+    phoneInput.placeholder = I18N_DATA.phone_placeholder || phoneInput.placeholder;
+  }
   const instructionsEl = document.querySelector('.instructions');
   if (instructionsEl && u.instructions_html) instructionsEl.innerHTML = u.instructions_html;
   const langLabel = document.querySelector('.lang-picker-label');
@@ -78,27 +97,58 @@ function applyTranslations() {
   if (passInput) passInput.placeholder = u.modal_admin_pass_placeholder || '';
   const adminLoginBtn = document.querySelector('#adminLoginForm .btn');
   if (adminLoginBtn) adminLoginBtn.textContent = u.modal_admin_login_button || adminLoginBtn.textContent;
+
+  // ===== SCALE LABELS (0-5) =====
   applyScaleLabels();
+
+  // ===== DELETE BUTTONS =====
+  applyDeleteButtons();
+
+  // ===== PROGRESS LABEL (com placeholders {answered} e {total}) =====
+  const progressEl = document.getElementById('progressText');
+  if (progressEl && u.progress_label) {
+    const answeredCount = window.__answeredCount ?? 0;
+    progressEl.textContent = u.progress_label
+      .replace('{answered}', String(answeredCount))
+      .replace('{total}', '45');
+  }
+
+  // ===== QUESTIONS =====
   applyQuestions();
+
+  // ===== RESULT TEXTS (result-card) =====
   updateResultTexts();
 }
 
 function applyScaleLabels() {
   if (!I18N_DATA || !I18N_DATA.ui || !I18N_DATA.ui.scale_labels) return;
   const labels = I18N_DATA.ui.scale_labels;
-  for (let v = 0; v <= 5; v++) {
-    document.querySelectorAll('.rating-num').forEach((el, i) => {
-      if (parseInt(el.textContent) === v) {
-        const labelEl = el.parentElement.querySelector('.rating-label');
-        if (labelEl && labels[v]) labelEl.textContent = labels[v];
+  // Atualiza todos os .rating-label baseado na posição (0..5) dentro do .rating
+  document.querySelectorAll('.question').forEach(question => {
+    const radios = question.querySelectorAll('.rating label');
+    radios.forEach((radio, i) => {
+      const num = radio.querySelector('.rating-num');
+      const lab = radio.querySelector('.rating-label');
+      if (num && lab && labels[i]) {
+        lab.textContent = labels[i];
       }
     });
-    document.querySelectorAll('.scale-legend span').forEach(el => {
-      if (el.textContent.startsWith(v + ' —')) {
-        el.textContent = v + ' — ' + labels[v];
-      }
-    });
-  }
+  });
+  // Atualiza o .scale-legend (topo de cada grupo) com "0 — <label0>" e "5 — <label5>"
+  document.querySelectorAll('.scale-legend').forEach(sl => {
+    const spans = sl.querySelectorAll('span');
+    if (spans.length >= 2 && labels[0] && labels[5]) {
+      spans[0].textContent = '0 — ' + labels[0];
+      spans[1].textContent = '5 — ' + labels[5];
+    }
+  });
+}
+
+function applyDeleteButtons() {
+  if (!I18N_DATA || !I18N_DATA.ui) return;
+  document.querySelectorAll('.btn-delete').forEach(btn => {
+    btn.textContent = I18N_DATA.ui.btn_delete_record || btn.textContent;
+  });
 }
 
 function applyQuestions() {
