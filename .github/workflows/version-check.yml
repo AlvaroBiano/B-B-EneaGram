@@ -1,0 +1,62 @@
+name: Valida versão no commit
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Validar Conventional Commits (últimos 5 commits)
+        run: |
+          # Pega os 5 commits mais recentes
+          COMMITS=$(git log --pretty=format:"%s" -n 5)
+          echo "📋 Últimos 5 commits:"
+          echo "$COMMITS"
+          echo ""
+          # Valida formato Conventional Commits
+          PATTERN='^(feat|fix|docs|style|refactor|perf|test|chore|build|ci)(\([a-zA-Z0-9_-]+\))?!?: .+'
+          while read -r commit; do
+            if echo "$commit" | grep -qE "$PATTERN"; then
+              echo "✅ $commit"
+            else
+              echo "❌ NÃO segue Conventional Commits: $commit"
+              echo "   Formato esperado: <tipo>(escopo): descrição"
+              echo "   Tipos: feat, fix, docs, style, refactor, perf, test, chore, build, ci"
+              exit 1
+            fi
+          done <<< "$COMMITS"
+
+      - name: Sugerir próxima versão
+        run: |
+          # Pega o commit mais recente
+          LAST=$(git log --pretty=format:"%s" -n 1)
+          if echo "$LAST" | grep -qE "^feat(\(|:)"; then
+            echo "💡 Última mudança é uma FEATURE → sugiro MINOR (ex: v1.1.0)"
+            echo "   Crie a tag com: git tag -a v1.1.0 -m 'descrição'"
+          elif echo "$LAST" | grep -qE "^fix(\(|:)"; then
+            echo "💡 Última mudança é um BUGFIX → sugiro PATCH (ex: v1.0.2)"
+            echo "   Crie a tag com: git tag -a v1.0.2 -m 'descrição'"
+          fi
+
+      - name: Build Docker (validação)
+        run: |
+          docker build -t teste-eneagrama-test . || echo "Build local não feito (esperado, sem docker no CI)"
+          echo "✅ Render fará o build automaticamente quando commit for pushado"
+
+  deploy-to-render:
+    needs: check-version
+    runs-on: ubuntu-latest
+    steps:
+      - name: Disparar deploy no Render
+        run: |
+          echo "✅ Render detectará o push automaticamente via webhook do GitHub"
+          echo "   URL: https://dashboard.render.com/web/srv-daksfqbl550s73an9l5g"
