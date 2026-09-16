@@ -478,6 +478,8 @@
     <h1>Teste de Personalidade – Eneagrama</h1>
     <p>45 afirmações · 9 tipos · Descubra sua tendência dominante</p>
     <button class="btn btn-secondary" style="margin-top:12px;font-size:.8rem;padding:8px 14px;" onclick="openModalAdmin()">🔐 Área administrativa</button>
+    <!-- Seletor de idioma (carregado dinamicamente pelo i18n.js) -->
+    <div id="languagePicker" style="margin-top:14px;"></div>
   </div>
 
 
@@ -486,7 +488,7 @@
       <input type="text" id="fieldNome" placeholder="Digite seu nome completo" autocomplete="name">
     </label>
     <label>Telefone celular (WhatsApp)
-      <input type="tel" id="fieldWhats" placeholder="(00) 00000-0000" autocomplete="tel">
+      <input type="tel" id="fieldWhats" placeholder="(00) 00000-0000" autocomplete="tel" data-i18n-placeholder="phone_placeholder">
     </label>
   </div>
 
@@ -518,6 +520,7 @@
   <div id="results"></div>
 </div>
 
+<script src="i18n.js"></script>
 <script>
 const TYPES = [
   { letter:'A', num:9, name:'Pacificador',    color:'#22c55e' },
@@ -800,7 +803,8 @@ function gerarPDF() {
     dominante: `${dominant.name}`,
     empate: tied.length > 1 ? 1 : 0,
     percentual: Math.round(dominant.pct * 100),
-    bars
+    bars,
+    lingua: window.__currentLocale ? window.__currentLocale() : 'pt-BR'
   };
 
   // Feedback ao usuário
@@ -1003,6 +1007,9 @@ async function adminLoadRecords(page) {
         const matches = [...raw.matchAll(/Tipo\s+(\d+)\s*[—–-]\s*([^/]+?)(?=\s*(?:\/|$))/g)];
         tipos = matches.map(m => ({ num: m[1], nome: m[2].trim(), pct: r.percentual }));
       }
+      // Bandeira do idioma
+      const langFlags = {'pt-BR':'🇧🇷','en-US':'🇺🇸','fr-FR':'🇫🇷','es-ES':'🇪🇸','de-DE':'🇩🇪'};
+      const flag = langFlags[r.lingua] || '🌐';
       const tiposHtml = tipos.map(t => `
         <div class="tipo-linha">
           <span class="tipo-badge">Tipo ${t.num}</span>
@@ -1011,7 +1018,7 @@ async function adminLoadRecords(page) {
         </div>`).join('');
       return `
       <div class="admin-record">
-        <div class="rec-name">${r.nome}</div>
+        <div class="rec-name">${r.nome} <span style="font-size:1.1rem;margin-left:6px;" title="${r.lingua || 'pt-BR'}">${flag}</span></div>
         <div class="rec-meta">${r.whatsapp || '—'} · ${r.criado_em}</div>
         <div class="rec-dominant">
           ${tiposHtml}
