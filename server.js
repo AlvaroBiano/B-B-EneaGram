@@ -83,11 +83,12 @@ if (!adminExists) {
 const cols = db.prepare("PRAGMA table_info(resultados)").all().map(c => c.name);
 if (!cols.includes('dominante_exibicao')) db.exec('ALTER TABLE resultados ADD COLUMN dominante_exibicao TEXT');
 if (!cols.includes('bars')) db.exec('ALTER TABLE resultados ADD COLUMN bars TEXT');
+if (!cols.includes('lingua')) db.exec("ALTER TABLE resultados ADD COLUMN lingua TEXT DEFAULT 'pt-BR'");
 
 function saveResult(data) {
   const stmt = db.prepare(`
-    INSERT INTO resultados (nome, whatsapp, dominante, dominante_exibicao, percentual, empate, respostas, totais, bars)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO resultados (nome, whatsapp, dominante, dominante_exibicao, percentual, empate, respostas, totais, bars, lingua)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `);
   const info = stmt.run(
     data.nome,
@@ -98,7 +99,8 @@ function saveResult(data) {
     data.empate,
     JSON.stringify(data.respostas),
     JSON.stringify(data.totais),
-    Array.isArray(data.bars) ? JSON.stringify(data.bars) : '[]'
+    Array.isArray(data.bars) ? JSON.stringify(data.bars) : '[]',
+    (typeof data.lingua === 'string' && I18N_LOCALES.includes(data.lingua)) ? data.lingua : 'pt-BR'
   );
   return info.lastInsertRowid;
 }
@@ -113,6 +115,31 @@ function readBody(req) {
     });
     req.on('error', reject);
   });
+}
+
+// ---- i18n: servir arquivos de tradução ----
+const I18N_DIR = path.join(PUBLIC_DIR, 'i18n');
+const I18N_LOCALES = ['pt-BR', 'en-US', 'fr-FR', 'es-ES', 'de-DE'];
+
+function readI18n(locale) {
+  // Normaliza: pt-BR ou pt_br → pt-BR
+  const norm = locale.replace('_', '-').toLowerCase();
+  let lc = I18N_LOCALES.find(l => l.toLowerCase() === norm);
+  // Fallback inteligente: fr-ca → fr-FR, es-mx → es-ES, en-gb → en-US, de-ch → de-DE
+  if (!lc) {
+    const lang = norm.split('-')[0];
+    if (lang === 'fr') lc = 'fr-FR';
+    else if (lang === 'es') lc = 'es-ES';
+    else if (lang === 'en') lc = 'en-US';
+    else if (lang === 'de') lc = 'de-DE';
+    else if (lang === 'pt') lc = 'pt-BR';
+    else lc = 'pt-BR';
+  }
+  try {
+    return JSON.parse(fs.readFileSync(path.join(I18N_DIR, lc + '.json'), 'utf-8'));
+  } catch (e) {
+    return JSON.parse(fs.readFileSync(path.join(I18N_DIR, 'pt-BR.json'), 'utf-8'));
+  }
 }
 
 // ---- Gerar PDF via Puppeteer (Fly.io Linux-compatible) ----
@@ -257,6 +284,31 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
+  // Endpoint i18n: lista idiomas disponíveis
+  if (url.pathname === '/api/traducoes' && req.method === 'GET') {
+    const list = I18N_LOCALES.map(lc => {
+      try {
+        const data = JSON.parse(fs.readFileSync(path.join(I18N_DIR, lc + '.json'), 'utf-8'));
+        return { locale: lc, language_name: data.language_name, flag: data.flag };
+      } catch (e) { return { locale: lc, error: 'load failed' }; }
+    });
+    res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'public, max-age=3600' });
+    res.end(JSON.stringify(list));
+    return;
+  }
+
+  // Endpoint i18n: retorna JSON do idioma (com fallback inteligente)
+  if (url.pathname.startsWith('/api/i18n/') && req.method === 'GET') {
+    const locale = decodeURIComponent(url.pathname.replace('/api/i18n/', ''));
+    const data = readI18n(locale);
+    res.writeHead(200, {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Cache-Control': 'public, max-age=3600'
+    });
+    res.end(JSON.stringify(data));
+    return;
+  }
+
   // Endpoint de login admin (server-side via tabela)
   if (url.pathname === '/api/admin/login' && req.method === 'POST') {
     try {
@@ -331,7 +383,7 @@ const server = http.createServer(async (req, res) => {
       const offset = (page - 1) * perPage;
       const total = db.prepare('SELECT COUNT(*) c FROM resultados').get().c;
       const rows = db.prepare(`
-        SELECT id, nome, whatsapp, dominante, dominante_exibicao, percentual, empate, criado_em, bars, respostas, totais
+        SELECT id, nome, whatsapp, dominante, dominante_exibicao, percentual, empate, criado_em, bars, respostas, totais, lingua
         FROM resultados
         ORDER BY criado_em DESC, id DESC
         LIMIT ? OFFSET ?
