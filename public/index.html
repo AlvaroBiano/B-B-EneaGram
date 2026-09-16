@@ -477,9 +477,11 @@
   <div class="header">
     <h1>Teste de Personalidade – Eneagrama</h1>
     <p>45 afirmações · 9 tipos · Descubra sua tendência dominante</p>
-    <button class="btn btn-secondary" style="margin-top:12px;font-size:.8rem;padding:8px 14px;" onclick="openModalAdmin()">🔐 Área administrativa</button>
-    <!-- Seletor de idioma (carregado dinamicamente pelo i18n.js) -->
-    <div id="languagePicker" style="margin-top:14px;"></div>
+    <!-- Linha: botão admin à esquerda + seletor de idioma à direita -->
+    <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-top:12px;flex-wrap:wrap;">
+      <button class="btn btn-secondary" style="font-size:.8rem;padding:8px 14px;" onclick="openModalAdmin()">🔐 Área administrativa</button>
+      <div id="languagePicker"></div>
+    </div>
   </div>
 
 
