@@ -1,0 +1,136 @@
+{
+  "locale": "pt-BR",
+  "language_name": "Português (Brasil)",
+  "flag": "🇧🇷",
+  "phone_placeholder": "(00) 00000-0000",
+  "phone_example": "(48) 99128-6513",
+  "ui": {
+    "title": "Teste de Personalidade – Eneagrama",
+    "subtitle": "45 afirmações · 9 tipos · Descubra sua tendência dominante",
+    "btn_admin": "🔐 Área administrativa",
+    "label_name": "Nome completo",
+    "label_phone": "Telefone celular (WhatsApp)",
+    "instructions_html": "Este questionário contém 45 afirmações. Leia cada item com calma e atribua uma nota de 0 a 5, considerando o quanto a afirmação descreve seu comportamento habitual, em diferentes situações e ao longo do tempo. Quanto maior a nota, maior a identificação: <strong>0</strong> = \"não me descreve\"; <strong>5</strong> = \"descreve-me totalmente\". Responda com sinceridade. A interpretação vale para qualquer gênero e indica tendências relativas — não é um diagnóstico clínico.",
+    "scale_labels": {
+      "0": "não me descreve",
+      "1": "quase não me descreve",
+      "2": "me descreve um pouco",
+      "3": "me descreve",
+      "4": "me descreve muito",
+      "5": "me descreve totalmente"
+    },
+    "btn_view_result": "Ver resultado",
+    "btn_generate_pdf": "📄 Gerar PDF do resultado",
+    "btn_refazer": "🔄 Refazer teste",
+    "btn_login": "Entrar",
+    "btn_logout": "Sair",
+    "btn_delete_record": "🗑️ Excluir",
+    "btn_save_profile": "Salvar alterações",
+    "tab_registros": "📋 Registros",
+    "tab_perfil": "⚙️ Meu Perfil",
+    "modal_confirm_title": "⚠️ Confirmação antes de ver o resultado",
+    "modal_confirm_p1": "Os dados enviados não poderão ser reajustados ou revistos.",
+    "modal_confirm_p2": "O envio de um novo teste não invalidará a resposta original — cada submissão gera um registro independente no banco de dados.",
+    "modal_confirm_p3": "Deseja prosseguir para ver o resultado e gerar o PDF?",
+    "modal_confirm_yes": "Confirmar e ver resultado",
+    "modal_confirm_no": "Cancelar",
+    "modal_admin_title": "🔐 Área Administrativa",
+    "modal_admin_login_label": "Login (superadmin)",
+    "modal_admin_pass_label": "Senha",
+    "modal_admin_user_placeholder": "Digite seu login",
+    "modal_admin_pass_placeholder": "Digite sua senha",
+    "modal_admin_login_button": "Entrar",
+    "modal_admin_login_error": "Login ou senha incorretos",
+    "profile_form_login_label": "Login atual (somente leitura)",
+    "profile_form_current_pass_label": "Senha atual",
+    "profile_form_new_login_label": "Novo login",
+    "profile_form_new_pass_label": "Nova senha",
+    "profile_form_save_button": "Salvar alterações",
+    "pdf_status_loading": "⏳ Gerando PDF...",
+    "pdf_status_success": "✅ PDF gerado e baixado!",
+    "pdf_status_error": "❌ Falha ao gerar PDF. Verifique se o servidor local está rodando (node server.js).",
+    "pdf_required_name": "⚠️ Preencha seu nome completo antes de gerar o PDF.",
+    "pdf_required_test": "⚠️ Responda o teste e clique em \"Ver resultado\" primeiro.",
+    "progress_label": "{answered} / {total} respondidas",
+    "result_section_title": "Seus Resultados",
+    "result_section_subtitle": "Análise completa das 9 tendências do Eneagrama",
+    "result_dominant_title": "Personalidade dominante",
+    "result_chart_title": "Gráfico comparativo",
+    "result_table_title": "Tabela detalhada",
+    "result_legal_title": "Aviso",
+    "result_legal_text": "As pontuações indicam tendências relativas entre os tipos. Resultados próximos ou empatados devem ser lidos em conjunto com as respostas — não como diagnóstico. A classificação é a mesma para qualquer gênero.",
+    "result_pdf_button_text": "📄 Gerar PDF do resultado",
+    "result_refazer_button_text": "🔄 Refazer teste",
+    "language_picker_label": "Idioma:",
+    "language_picker_pt": "🇧🇷 Português",
+    "language_picker_en": "🇺🇸 English",
+    "language_picker_fr": "🇫🇷 Français",
+    "language_picker_es": "🇪🇸 Español",
+    "language_picker_de": "🇩🇪 Deutsch"
+  },
+  "questions": {
+    "A": [
+      "A maioria das pessoas o considera alguém pacífico, que se relaciona bem com quase todos. Você costuma ouvir com atenção e demonstrar simpatia, inclusive com quem acabou de conhecer. Gosta de conversar e de tratar as pessoas com cordialidade.",
+      "Você prefere tomar decisões por consenso e considera importante ouvir a opinião de todos os envolvidos. Negociar e mediar são habilidades naturais para você. Não aprecia decisões autoritárias e esse também não costuma ser o seu estilo.",
+      "Sem planejamento, você pode se distrair com facilidade, mesmo diante de tarefas importantes. Uma agenda ajuda a organizar suas prioridades. Quando alguém o interrompe e pede ajuda, você tem dificuldade para dizer \"não\" e pode acabar priorizando as demandas alheias, sobrecarregando-se.",
+      "Você valoriza o grupo e o trabalho em equipe. Prefere atuar com outras pessoas a realizar tudo de forma isolada e acredita que as vitórias pertencem ao grupo. Sente desconforto quando é colocado em destaque como o melhor da equipe.",
+      "Muitas vezes, você aceita a decisão de outras pessoas para evitar conflitos. Mesmo deixando seus próprios desejos de lado, consegue convencer-se de que eles não são tão importantes."
+    ],
+    "B": [
+      "Você tende a ser crítico consigo mesmo e com as outras pessoas e, em geral, não aprecia receber críticas.",
+      "Você gosta de manter as coisas organizadas e em seus devidos lugares. A desordem costuma incomodá-lo, especialmente quando alguém mexe em algo que você arrumou.",
+      "Você tem pouca tolerância a erros, tanto seus quanto dos outros, e tende a se culpar quando comete um engano.",
+      "Para você, não existe trabalho \"mais ou menos\": ou ele está bem feito, ou não está. Você considera importante entregar tudo com alto padrão de qualidade e atenção aos detalhes.",
+      "Você costuma irritar-se com pessoas irresponsáveis ou pouco comprometidas. Para você, cumprir compromissos é algo fundamental."
+    ],
+    "C": [
+      "Você gosta de ajudar as pessoas, especialmente aquelas que são importantes para você. Com frequência, dedica-se além do necessário para apoiá-las, elogiá-las e reconhecer suas qualidades.",
+      "Você se dedica tanto às outras pessoas que, às vezes, acaba negligenciando o próprio cuidado. Parece faltar tempo para atender às suas necessidades, e é mais fácil para você perceber e atender às necessidades dos outros.",
+      "Você sente dificuldade para dizer \"não\" a alguém próximo que precisa de sua ajuda, pois se preocupa em magoar essa pessoa ou com a forma como ela interpretará sua recusa.",
+      "Você sente dificuldade para pedir diretamente carinho, atenção ou presentes. Acredita que as pessoas deveriam perceber quando você precisa disso, assim como você procura perceber as necessidades delas.",
+      "Você é naturalmente carinhoso e atencioso e valoriza os relacionamentos pessoais, inclusive no ambiente de trabalho. É comum transformar colegas em amigos e assumir o papel de conselheiro ou confidente."
+    ],
+    "D": [
+      "Para você, é importante participar de uma competição com o objetivo de vencer. Costuma empenhar-se para alcançar a vitória e valoriza ser reconhecido pelas realizações. Seu foco em resultados é elevado.",
+      "Você costuma impressionar as pessoas por sua capacidade de superar desafios e conquistar resultados rapidamente. Em geral, alcança seus objetivos e estabelece metas ambiciosas.",
+      "Você costuma falar com segurança sobre suas qualidades e realizações, mas não costuma destacar seus pontos fracos ou fracassos. Para você, é importante transmitir uma imagem de sucesso.",
+      "Você tem grande habilidade para adaptar seu comportamento a diferentes contextos, especialmente quando isso favorece sua imagem ou seus objetivos. Algumas pessoas podem perceber diferenças na forma como você age em casa, no trabalho e em outros ambientes.",
+      "Você é uma pessoa acelerada e costuma ter pouca paciência com quem considera lento, especialmente quando essa lentidão pode prejudicar uma meta ou afetar sua imagem, a da equipe ou a da empresa."
+    ],
+    "E": [
+      "As atividades que você realiza e o trabalho que exerce precisam ter um significado que vá além da simples sobrevivência. Fazer algo apenas por obrigação ou seguir rotinas sem propósito não o motiva. Você precisa sentir que é valorizado em sua singularidade.",
+      "Seu humor tende a mudar com mais facilidade e rapidez do que o da maioria das pessoas. Você pode estar contente em um momento e desanimado no seguinte, às vezes sem compreender exatamente o motivo.",
+      "Você não gosta de se sentir igual às demais pessoas. Valoriza ser diferente em algum aspecto e sente-se especial por isso, atraindo a atenção dos outros de alguma maneira.",
+      "Algumas pessoas o consideram emocionalmente dramático. Você sente emoções intensas, ainda que nem sempre as demonstre, e tende a voltar-se para o próprio mundo interior quando elas surgem. Em geral, acredita que os outros compreendem bem esse seu modo de sentir.",
+      "É comum você idealizar uma situação antes que ela aconteça, como uma viagem ou um relacionamento. Quando a experiência se concretiza, muitas vezes ela não corresponde ao que imaginava, e seu desejo pode diminuir logo depois de alcançar o que queria."
+    ],
+    "F": [
+      "Você é uma pessoa racional e analítica. Acredita que decisões bem tomadas dependem de análise lógica e inteligência, e tende a considerar que reações muito emotivas ou exageradas podem comprometer a qualidade das decisões.",
+      "Você aprecia reservar algum tempo sozinho todos os dias para refletir e recuperar as energias. Algumas pessoas podem interpretar isso como isolamento, mas você se sente bem nesses momentos de recolhimento.",
+      "Você valoriza muito o conhecimento, a ciência e a informação. Busca aprender continuamente por meio de leitura, estudo, pesquisa e reflexão, e admira pessoas inteligentes.",
+      "Você não gosta que seu espaço pessoal seja invadido sem aviso e se incomoda quando alguém se aproxima demais ou toca em você enquanto fala. Também prefere evitar conversas em tom excessivamente alto ou assuntos superficiais com pessoas que ainda não conhece.",
+      "Você gosta de resolver problemas, charadas e quebra-cabeças que exigem raciocínio. Tem curiosidade para entender como as coisas funcionam e prefere encontrar soluções por conta própria antes de pedir ajuda."
+    ],
+    "G": [
+      "Você é uma pessoa precavida e costuma pensar antecipadamente nas possibilidades. Antes de viajar para um lugar novo, por exemplo, prefere consultar o mapa, conhecer o percurso e planejar-se, inclusive considerando eventuais imprevistos.",
+      "Para você, é importante ver evidências antes de acreditar. Algumas pessoas o consideram cético por exigir comprovações, e você costuma identificar rapidamente riscos e problemas em ideias ou projetos muito otimistas.",
+      "Você leva tempo para confiar nas pessoas e considera prudente observar seu comportamento, especialmente quando ainda não as conhece bem. Mesmo depois de criar proximidade, às vezes sente necessidade de confirmar se está tudo bem.",
+      "Você tende a sentir ansiedade diante da possibilidade de algo dar errado. Quando não se considera suficientemente preparado ou não dispõe do tempo desejado para se preparar, sua preocupação aumenta e surgem pensamentos recorrentes, como \"E se isso acontecer?\"",
+      "Você costuma duvidar da própria competência, mesmo quando os outros reconhecem sua capacidade. Às vezes, busca confirmação de que está no caminho certo e pode questionar seu desempenho ao assumir uma posição de autoridade."
+    ],
+    "H": [
+      "Você aprecia novidades e aventuras. Prefere aprender coisas diferentes e inovadoras, mantém a mente aberta a novas tendências e considera importante viver experiências variadas. Para você, quanto mais experiências, melhor.",
+      "É fundamental para você gostar do que faz, inclusive no trabalho. Você procura manter prazer, lazer e diversão em sua rotina. Quando uma tarefa deixa de ser agradável, tende a adiá-la ou abandoná-la para iniciar algo novo.",
+      "Você está acostumado a realizar várias atividades ao mesmo tempo. Sente dificuldade quando precisa concluir uma tarefa antes de iniciar outra e costuma ler, estudar ou lidar com assuntos diferentes simultaneamente.",
+      "Você é otimista e costuma enxergar o lado positivo das situações. Sente desconforto diante de pessoas muito negativas ou tristes e tende a animá-las ou a se afastar. Algumas pessoas acham que você deveria ser mais realista, mas você valoriza manter uma visão esperançosa e ampla.",
+      "Você valoriza a liberdade acima de tudo. Tende a ter menos preconceitos e considera importante que cada pessoa possa escolher como viver. Compromissos muito longos ou pessoas excessivamente dependentes podem fazê-lo sentir-se limitado ou desconfortável."
+    ],
+    "I": [
+      "Você é uma pessoa direta e não gosta de rodeios. Prefere que as pessoas vão ao ponto. Seu estilo assertivo e firme já fez com que alguns o considerassem agressivo ou se sentissem ofendidos; ainda assim, você tende a interpretar essas reações como exageradas.",
+      "Você acredita que pessoas mais fortes ou poderosas podem abusar das mais vulneráveis. Considera isso injusto e, por vezes, envolve-se em conflitos para defender quem julga estar em desvantagem. Os outros costumam percebê-lo como uma pessoa forte e determinada.",
+      "Você causa impacto nas pessoas mesmo sem essa intenção. Seu tom de voz é naturalmente alto e, algumas vezes, os outros interpretam sua fala como se estivesse gritando, embora esse seja apenas o seu modo habitual de se expressar.",
+      "Você tende a agir imediatamente. Enquanto outras pessoas ainda estão pensando ou analisando, seu impulso é começar — e com rapidez. Às vezes, essa pressa pode fazê-lo atropelar os outros, impacientar-se com esperas ou dizer e fazer algo antes de refletir.",
+      "Você não sente necessidade de agradar a todos. É muito franco e tende a dizer o que considera necessário, independentemente de como os outros reagirão. Essa postura já lhe causou dificuldades no passado."
+    ]
+  }
+}
