@@ -1,0 +1,136 @@
+{
+  "locale": "es-ES",
+  "language_name": "Español (España)",
+  "flag": "🇪🇸",
+  "phone_placeholder": "(00) 00000 0000",
+  "phone_example": "(48) 991 28 65 13",
+  "ui": {
+    "title": "Test de Personalidad – Eneagrama",
+    "subtitle": "45 afirmaciones · 9 tipos · Descubra su tendencia dominante",
+    "btn_admin": "🔐 Área administrativa",
+    "label_name": "Nombre completo",
+    "label_phone": "Teléfono móvil (WhatsApp)",
+    "instructions_html": "Este cuestionario contiene 45 afirmaciones. Lea cada enunciado con calma y asigne una puntuación de 0 a 5, teniendo en cuenta cuánto describe la afirmación su comportamiento habitual, en distintas situaciones y a lo largo del tiempo. Cuanto mayor sea la puntuación, mayor será la identificación: <strong>0</strong> = \"no me describe\"; <strong>5</strong> = \"me describe por completo\". Responda con sinceridad. La interpretación es válida para cualquier género e indica tendencias relativas — no se trata de un diagnóstico clínico.",
+    "scale_labels": {
+      "0": "no me describe",
+      "1": "apenas me describe",
+      "2": "me describe algo",
+      "3": "me describe",
+      "4": "me describe bastante",
+      "5": "me describe por completo"
+    },
+    "btn_view_result": "Ver resultado",
+    "btn_generate_pdf": "📄 Generar PDF del resultado",
+    "btn_refazer": "🔄 Repetir test",
+    "btn_login": "Entrar",
+    "btn_logout": "Salir",
+    "btn_delete_record": "🗑️ Eliminar",
+    "btn_save_profile": "Guardar cambios",
+    "tab_registros": "📋 Registros",
+    "tab_perfil": "⚙️ Mi perfil",
+    "modal_confirm_title": "⚠️ Confirmación antes de ver el resultado",
+    "modal_confirm_p1": "Los datos enviados no podrán reajustarse ni revisarse.",
+    "modal_confirm_p2": "El envío de un nuevo test no invalidará la respuesta original; cada envío genera un registro independiente en la base de datos.",
+    "modal_confirm_p3": "¿Desea continuar para ver el resultado y generar el PDF?",
+    "modal_confirm_yes": "Confirmar y ver resultado",
+    "modal_confirm_no": "Cancelar",
+    "modal_admin_title": "🔐 Área administrativa",
+    "modal_admin_login_label": "Usuario (superadministrador)",
+    "modal_admin_pass_label": "Contraseña",
+    "modal_admin_user_placeholder": "Introduzca su usuario",
+    "modal_admin_pass_placeholder": "Introduzca su contraseña",
+    "modal_admin_login_button": "Entrar",
+    "modal_admin_login_error": "Usuario o contraseña incorrectos",
+    "profile_form_login_label": "Usuario actual (solo lectura)",
+    "profile_form_current_pass_label": "Contraseña actual",
+    "profile_form_new_login_label": "Nuevo usuario",
+    "profile_form_new_pass_label": "Nueva contraseña",
+    "profile_form_save_button": "Guardar cambios",
+    "pdf_status_loading": "⏳ Generando PDF...",
+    "pdf_status_success": "✅ PDF generado y descargado.",
+    "pdf_status_error": "❌ No se ha podido generar el PDF. Compruebe que el servidor local esté en ejecución (node server.js).",
+    "pdf_required_name": "⚠️ Rellene su nombre completo antes de generar el PDF.",
+    "pdf_required_test": "⚠️ Responda el test y pulse primero \"Ver resultado\".",
+    "progress_label": "{answered} / {total} respondidas",
+    "result_section_title": "Sus resultados",
+    "result_section_subtitle": "Análisis completo de las 9 tendencias del Eneagrama",
+    "result_dominant_title": "Personalidad dominante",
+    "result_chart_title": "Gráfico comparativo",
+    "result_table_title": "Tabla detallada",
+    "result_legal_title": "Aviso",
+    "result_legal_text": "Las puntuaciones indican tendencias relativas entre los tipos. Los resultados próximos o empatados deben interpretarse junto con las respuestas, no como un diagnóstico. La clasificación es la misma para cualquier género.",
+    "result_pdf_button_text": "📄 Generar PDF del resultado",
+    "result_refazer_button_text": "🔄 Repetir test",
+    "language_picker_label": "Idioma:",
+    "language_picker_pt": "🇧🇷 Portugués",
+    "language_picker_en": "🇺🇸 Inglés",
+    "language_picker_fr": "🇫🇷 Francés",
+    "language_picker_es": "🇪🇸 Español",
+    "language_picker_de": "🇩🇪 Alemán"
+  },
+  "questions": {
+    "A": [
+      "La mayoría de las personas le considera alguien apacible, que se relaciona bien con casi todo el mundo. Usted suele escuchar con atención y mostrar simpatía, incluso con quien acaba de conocer. Le gusta conversar y tratar a las personas con cordialidad.",
+      "Usted prefiere tomar decisiones por consenso y considera importante escuchar la opinión de todas las personas implicadas. Negociar y mediar son habilidades naturales para usted. No le agradan las decisiones autoritarias y ese tampoco suele ser su estilo.",
+      "Sin planificación, puede distraerse con facilidad, incluso ante tareas importantes. Una agenda le ayuda a organizar sus prioridades. Cuando alguien le interrumpe y le pide ayuda, le cuesta decir \"no\" y puede acabar priorizando las demandas ajenas, sobrecargándose.",
+      "Usted valora el grupo y el trabajo en equipo. Prefiere actuar con otras personas a hacerlo todo de forma aislada y cree que las victorias pertenecen al grupo. Siente incomodidad cuando se le coloca en primer plano como el mejor del equipo.",
+      "Con frecuencia, acepta la decisión de otras personas para evitar conflictos. Aun dejando de lado sus propios deseos, consigue convencerse de que no son tan importantes."
+    ],
+    "B": [
+      "Usted tiende a ser crítico consigo mismo y con las demás personas y, en general, no le agrada recibir críticas.",
+      "Le gusta mantener las cosas organizadas y en su sitio. El desorden suele molestarle, sobre todo cuando alguien toca algo que usted ha ordenado.",
+      "Tolera muy poco los errores, tanto propios como ajenos, y tiende a culparse cuando comete una equivocación.",
+      "Para usted, no existe un trabajo \"más o menos\": o está bien hecho o no lo está. Considera importante entregarlo todo con un alto nivel de calidad y atención al detalle.",
+      "Suele irritarle las personas irresponsables o poco comprometidas. Para usted, cumplir los compromisos es algo fundamental."
+    ],
+    "C": [
+      "Le gusta ayudar a las personas, especialmente a aquellas que son importantes para usted. Con frecuencia, se entrega más de lo necesario para apoyarlas, elogiarlas y reconocer sus cualidades.",
+      "Se entrega tanto a los demás que, en ocasiones, acaba descuidando su propio cuidado. Parece faltarle tiempo para atender sus necesidades, y le resulta más fácil percibir y atender las necesidades de los otros.",
+      "Le cuesta decir \"no\" a alguien cercano que necesita su ayuda, porque le preocupa herirle o por cómo esa persona interpretará su negativa.",
+      "Le cuesta pedir directamente cariño, atención o regalos. Cree que las personas deberían percibir cuándo lo necesita, del mismo modo que usted procura percibir las necesidades de los demás.",
+      "Es una persona cariñosa y atenta por naturaleza y valora las relaciones personales, también en el entorno laboral. Es habitual que convierta a compañeros en amigos y asuma el papel de consejero o confidente."
+    ],
+    "D": [
+      "Para usted, es importante participar en una competición con el objetivo de ganar. Suele esforzarse por alcanzar la victoria y valora ser reconocido por sus logros. Su orientación a los resultados es elevada.",
+      "Suele impresionar a las personas por su capacidad de superar retos y conseguir resultados con rapidez. Por lo general, alcanza sus objetivos y se marca metas ambiciosas.",
+      "Suele hablar con seguridad sobre sus cualidades y logros, pero no suele destacar sus puntos débiles ni sus fracasos. Para usted, es importante transmitir una imagen de éxito.",
+      "Tiene una gran capacidad para adaptar su comportamiento a distintos contextos, especialmente cuando ello favorece su imagen o sus objetivos. Algunas personas pueden notar diferencias en cómo actúa en casa, en el trabajo y en otros entornos.",
+      "Es una persona rápida y suele tener poca paciencia con quien considera lento, sobre todo cuando esa lentitud puede perjudicar una meta o afectar a su imagen, a la del equipo o a la de la empresa."
+    ],
+    "E": [
+      "Las actividades que realiza y el trabajo que desempeña deben tener un significado que vaya más allá de la mera subsistencia. Hacer algo solo por obligación o seguir rutinas sin propósito no le motiva. Necesita sentir que se le valora en su singularidad.",
+      "Su humor tiende a cambiar con mayor facilidad y rapidez que el de la mayoría de las personas. Puede estar contento en un momento y desanimado al siguiente, a veces sin comprender exactamente el motivo.",
+      "No le gusta sentirse igual que las demás personas. Valora ser distinto en algún aspecto y se siente especial por ello, atrayendo la atención de los demás de algún modo.",
+      "Algunas personas le consideran emocionalmente dramático. Siente emociones intensas, aunque no siempre las muestre, y tiende a volver hacia su mundo interior cuando surgen. Por lo general, cree que los demás comprenden bien esa forma de sentir.",
+      "Es habitual que idealice una situación antes de que ocurra, como un viaje o una relación. Cuando la experiencia se concreta, a menudo no corresponde a lo que había imaginado, y su deseo puede disminuir justo después de conseguir lo que quería."
+    ],
+    "F": [
+      "Es una persona racional y analítica. Cree que las decisiones bien tomadas dependen del análisis lógico y de la inteligencia, y tiende a considerar que las reacciones muy emotivas o exageradas pueden comprometer la calidad de las decisiones.",
+      "Le gusta reservar algo de tiempo a solas cada día para reflexionar y recuperar energía. Algunas personas pueden interpretarlo como aislamiento, pero usted se siente bien en esos momentos de recogimiento.",
+      "Valora mucho el conocimiento, la ciencia y la información. Busca aprender de forma continua mediante la lectura, el estudio, la investigación y la reflexión, y admira a las personas inteligentes.",
+      "No le gusta que invadan su espacio personal sin aviso y le molesta cuando alguien se aproxima demasiado o le toca mientras habla. También prefiere evitar conversaciones en un tono excesivamente alto o asuntos superficiales con personas a las que aún no conoce.",
+      "Le gusta resolver problemas, acertijos y rompecabezas que exigen razonamiento. Siente curiosidad por entender cómo funcionan las cosas y prefiere encontrar soluciones por su cuenta antes de pedir ayuda."
+    ],
+    "G": [
+      "Es una persona precavida y suele pensar con antelación en las posibilidades. Antes de viajar a un lugar nuevo, por ejemplo, prefiere consultar el mapa, conocer el recorrido y planificar, teniendo en cuenta incluso posibles imprevistos.",
+      "Para usted, es importante ver pruebas antes de creer. Algunas personas le consideran escéptico por exigir comprobaciones, y suele identificar con rapidez riesgos y problemas en ideas o proyectos demasiado optimistas.",
+      "Tarda en confiar en las personas y considera prudente observar su comportamiento, sobre todo cuando aún no las conoce bien. Incluso después de crear cierta cercanía, a veces siente la necesidad de confirmar que todo va bien.",
+      "Tiеndе a sentir ansiedad ante la posibilidad de que algo salga mal. Cuando no se considera suficientemente preparado o no dispone del tiempo que desearía para prepararse, su preocupación aumenta y aparecen pensamientos recurrentes, como \"Y si esto sucede?\".",
+      "Suele dudar de su propia competencia, incluso cuando los demás reconocen su capacidad. En ocasiones, busca confirmación de que va por buen camino y puede cuestionar su desempeño al asumir una posición de autoridad."
+    ],
+    "H": [
+      "Le agradan las novedades y las aventuras. Prefiere aprender cosas diferentes e innovadoras, mantiene la mente abierta a nuevas tendencias y considera importante vivir experiencias variadas. Para usted, cuantas más experiencias, mejor.",
+      "Es fundamental que le guste lo que hace, también en el trabajo. Procura mantener placer, ocio y diversión en su rutina. Cuando una tarea deja de ser agradable, tiende a posponerla o a abandonarla para comenzar algo nuevo.",
+      "Está acostumbrado a realizar varias actividades a la vez. Le cuesta terminar una tarea antes de empezar otra y suele leer, estudiar o tratar asuntos distintos de forma simultánea.",
+      "Es optimista y suele ver el lado positivo de las situaciones. Siente incomodidad ante personas muy negativas o tristes y tiende a animarlas o a alejarse. Algunas personas creen que debería ser más realista, pero usted valora mantener una visión esperanzada y amplia.",
+      "Valora la libertad por encima de todo. Tiende a tener menos prejuicios y considera importante que cada persona pueda elegir cómo vivir. Los compromisos demasiado largos o las personas excesivamente dependientes pueden hacerle sentirse limitado o incómodo."
+    ],
+    "I": [
+      "Es una persona directa y no le gustan los rodeos. Prefiere que las personas vayan al grano. Su estilo asertivo y firme ya ha hecho que algunos le consideren agresivo o se sientan ofendidos; aun así, usted tiende a interpretar esas reacciones como exageradas.",
+      "Cree que las personas más fuertes o poderosas pueden abusar de las más vulnerables. Lo considera injusto y, en ocasiones, se implica en conflictos para defender a quien juzga en desventaja. Los demás suelen percibirle como una persona fuerte y decidida.",
+      "Causa impacto en las personas incluso sin esa intención. Su tono de voz es naturalmente alto y, a veces, los demás interpretan su habla como si estuviera gritando, aunque ese sea solo su modo habitual de expresarse.",
+      "Tiende a actuar de inmediato. Mientras otras personas todavía están pensando o analizando, su impulso es comenzar, y con rapidez. En ocasiones, esa prisa puede llevarle a atropellar a los demás, a impacientarse con las esperas o a decir y hacer algo antes de reflexionar.",
+      "No siente la necesidad de agradar a todo el mundo. Es muy franco y tiende a decir lo que considera necesario, independientemente de cómo reaccionen los demás. Esta postura ya le ha causado dificultades en el pasado."
+    ]
+  }
+}

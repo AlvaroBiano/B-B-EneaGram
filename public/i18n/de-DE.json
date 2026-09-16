@@ -1,0 +1,136 @@
+{
+  "locale": "de-DE",
+  "language_name": "Deutsch (Deutschland)",
+  "flag": "🇩🇪",
+  "phone_placeholder": "(0170) 1234567",
+  "phone_example": "(0170) 12345678",
+  "ui": {
+    "title": "Persönlichkeitstest – Enneagramm",
+    "subtitle": "45 Aussagen · 9 Typen · Entdecken Sie Ihre dominante Tendenz",
+    "btn_admin": "🔐 Verwaltungsbereich",
+    "label_name": "Vollständiger Name",
+    "label_phone": "Mobiltelefon (WhatsApp)",
+    "instructions_html": "Dieser Fragebogen enthält 45 Aussagen. Lesen Sie jede Aussage in Ruhe durch und vergeben Sie eine Bewertung von 0 bis 5, je nachdem, wie sehr die Aussage Ihr gewohnheitsmäßiges Verhalten in unterschiedlichen Situationen und über einen längeren Zeitraum hinweg beschreibt. Je höher die Bewertung, desto stärker die Übereinstimmung: <strong>0</strong> = „beschreibt mich nicht“; <strong>5</strong> = „beschreibt mich vollständig“. Antworten Sie ehrlich. Die Auswertung gilt für alle Geschlechter gleichermaßen und weist auf relative Tendenzen hin — sie stellt keine klinische Diagnose dar.",
+    "scale_labels": {
+      "0": "beschreibt mich nicht",
+      "1": "beschreibt mich kaum",
+      "2": "beschreibt mich ein wenig",
+      "3": "beschreibt mich",
+      "4": "beschreibt mich sehr",
+      "5": "beschreibt mich vollständig"
+    },
+    "btn_view_result": "Ergebnis anzeigen",
+    "btn_generate_pdf": "📄 Ergebnis als PDF erzeugen",
+    "btn_refazer": "🔄 Test wiederholen",
+    "btn_login": "Anmelden",
+    "btn_logout": "Abmelden",
+    "btn_delete_record": "🗑️ Löschen",
+    "btn_save_profile": "Änderungen speichern",
+    "tab_registros": "📋 Datensätze",
+    "tab_perfil": "⚙️ Mein Profil",
+    "modal_confirm_title": "⚠️ Bestätigung vor dem Anzeigen des Ergebnisses",
+    "modal_confirm_p1": "Die übermittelten Daten können im Nachhinein nicht angepasst oder überprüft werden.",
+    "modal_confirm_p2": "Das Einreichen eines neuen Tests macht die ursprüngliche Antwort nicht ungültig — jede Übermittlung erzeugt einen eigenständigen Datensatz in der Datenbank.",
+    "modal_confirm_p3": "Möchten Sie fortfahren, um das Ergebnis anzuzeigen und das PDF zu erzeugen?",
+    "modal_confirm_yes": "Bestätigen und Ergebnis anzeigen",
+    "modal_confirm_no": "Abbrechen",
+    "modal_admin_title": "🔐 Verwaltungsbereich",
+    "modal_admin_login_label": "Anmeldename (Superadmin)",
+    "modal_admin_pass_label": "Passwort",
+    "modal_admin_user_placeholder": "Geben Sie Ihren Anmeldenamen ein",
+    "modal_admin_pass_placeholder": "Geben Sie Ihr Passwort ein",
+    "modal_admin_login_button": "Anmelden",
+    "modal_admin_login_error": "Anmeldename oder Passwort falsch",
+    "profile_form_login_label": "Aktueller Anmeldename (schreibgeschützt)",
+    "profile_form_current_pass_label": "Aktuelles Passwort",
+    "profile_form_new_login_label": "Neuer Anmeldename",
+    "profile_form_new_pass_label": "Neues Passwort",
+    "profile_form_save_button": "Änderungen speichern",
+    "pdf_status_loading": "⏳ PDF wird erstellt...",
+    "pdf_status_success": "✅ PDF erstellt und heruntergeladen!",
+    "pdf_status_error": "❌ PDF konnte nicht erstellt werden. Bitte prüfen Sie, ob der lokale Server läuft (node server.js).",
+    "pdf_required_name": "⚠️ Bitte geben Sie Ihren vollständigen Namen an, bevor Sie das PDF erstellen.",
+    "pdf_required_test": "⚠️ Bitte beantworten Sie zuerst den Test und klicken Sie auf „Ergebnis anzeigen“.",
+    "progress_label": "{answered} / {total} beantwortet",
+    "result_section_title": "Ihre Ergebnisse",
+    "result_section_subtitle": "Vollständige Auswertung der 9 Enneagramm-Tendenzen",
+    "result_dominant_title": "Dominante Persönlichkeit",
+    "result_chart_title": "Vergleichsdiagramm",
+    "result_table_title": "Detaillierte Tabelle",
+    "result_legal_title": "Hinweis",
+    "result_legal_text": "Die Bewertungen geben relative Tendenzen zwischen den Typen an. Nahe beieinander liegende oder gleich hohe Ergebnisse sollten gemeinsam mit den Antworten gelesen werden — nicht als Diagnose. Die Zuordnung ist für alle Geschlechter gleich.",
+    "result_pdf_button_text": "📄 Ergebnis als PDF erzeugen",
+    "result_refazer_button_text": "🔄 Test wiederholen",
+    "language_picker_label": "Sprache:",
+    "language_picker_pt": "🇧🇷 Portugiesisch",
+    "language_picker_en": "🇺🇸 Englisch",
+    "language_picker_fr": "🇫🇷 Französisch",
+    "language_picker_es": "🇪🇸 Spanisch",
+    "language_picker_de": "🇩🇪 Deutsch"
+  },
+  "questions": {
+    "A": [
+      "Die meisten Menschen betrachten Sie als friedlichen Menschen, der mit nahezu allen gut auskommt. Sie hören gewöhnlich aufmerksam zu und zeigen Sympathie, auch gegenüber Menschen, die Sie gerade erst kennengelernt haben. Sie sprechen gerne mit anderen und begegnen den Mitmenschen mit Höflichkeit.",
+      "Sie treffen Entscheidungen bevorzugt im Konsens und halten es für wichtig, die Meinung aller Beteiligten anzuhören. Verhandeln und Vermitteln fallen Ihnen leicht. Sie schätzen autoritäre Entscheidungen nicht, und dies ist gewöhnlich auch nicht Ihr Stil.",
+      "Ohne vorherige Planung lassen Sie sich leicht ablenken, selbst bei wichtigen Aufgaben. Ein Terminkalender hilft Ihnen, Ihre Prioritäten zu ordnen. Wenn Sie jemand unterbricht und um Hilfe bittet, fällt es Ihnen schwer, „nein“ zu sagen, und Sie laufen Gefahr, die Anliegen anderer zu priorisieren und sich zu überlasten.",
+      "Sie schätzen die Gruppe und die Teamarbeit. Sie arbeiten lieber mit anderen zusammen, als alles allein zu erledigen, und sind überzeugt, dass die Erfolge dem gesamten Team gehören. Es ist Ihnen unangenehm, als beste Kraft im Team hervorgehoben zu werden.",
+      "Häufig akzeptieren Sie die Entscheidung anderer, um Konflikte zu vermeiden. Selbst wenn Sie Ihre eigenen Wünsche zurückstellen, gelingt es Ihnen, sich einzureden, dass diese nicht so wichtig sind."
+    ],
+    "B": [
+      "Sie neigen dazu, sich selbst und andere kritisch zu betrachten, und Kritik nehmen Sie im Allgemeinen nicht gerne entgegen.",
+      "Sie halten die Dinge gerne ordentlich und an ihrem Platz. Unordnung empfinden Sie gewöhnlich als störend, besonders wenn jemand etwas verändert, das Sie gerade geordnet haben.",
+      "Sie haben wenig Toleranz gegenüber Fehlern, sowohl Ihren eigenen als auch denen anderer, und neigen dazu, sich Vorwürfe zu machen, wenn Ihnen ein Versehen unterläuft.",
+      "Für Sie gibt es keine Arbeit „halbwegs gut“: Entweder sie ist ordentlich ausgeführt, oder sie ist es nicht. Sie halten es für wichtig, alles mit hohem Qualitätsanspruch und Liebe zum Detail abzuliefern.",
+      "Sie ärgern sich gewöhnlich über Menschen, die verantwortungslos oder unzuverlässig sind. Für Sie ist das Einhalten von Verpflichtungen eine Selbstverständlichkeit."
+    ],
+    "C": [
+      "Sie helfen den Mitmenschen gerne, besonders jenen, die Ihnen wichtig sind. Häufig geben Sie mehr, als nötig wäre, um sie zu unterstützen, zu loben und ihre Qualitäten anzuerkennen.",
+      "Sie widmen sich den anderen so sehr, dass Sie manchmal die eigene Fürsorge vernachlässigen. Es scheint Ihnen an Zeit zu fehlen, sich um Ihre eigenen Bedürfnisse zu kümmern, während Ihnen das Erkennen und Erfüllen der Bedürfnisse anderer leichter fällt.",
+      "Es fällt Ihnen schwer, einem nahestehenden Menschen, der Ihre Hilfe benötigt, „nein“ zu sagen, da Sie fürchten, diese Person zu verletzen oder sie mit Ihrer Ablehnung zu kränken.",
+      "Es fällt Ihnen schwer, Zuwendung, Aufmerksamkeit oder Geschenke unmittelbar einzufordern. Sie glauben, die anderen müssten erkennen, wenn Sie etwas brauchen, so wie Sie deren Bedürfnisse wahrzunehmen versuchen.",
+      "Sie sind von Natur aus herzlich und aufmerksam und schätzen persönliche Beziehungen, auch im Arbeitsumfeld. Häufig verwandeln Sie Kolleginnen und Kollegen in Freundinnen und Freunde und übernehmen die Rolle der Rat gebenden Vertrauensperson."
+    ],
+    "D": [
+      "Für Sie ist es wichtig, an einem Wettbewerb mit dem Ziel zu siegen teilzunehmen. Sie setzen sich gewöhnlich für den Sieg ein und schätzen es, für Ihre Leistungen anerkannt zu werden. Ihr Fokus auf Ergebnisse ist ausgeprägt.",
+      "Sie beeindrucken die Mitmenschen gewöhnlich durch Ihre Fähigkeit, Herausforderungen zu meistern und zügig Ergebnisse zu erzielen. In der Regel erreichen Sie Ihre Ziele und setzen sich ehrgeizige Vorgaben.",
+      "Sie sprechen gewöhnlich selbstbewusst über Ihre Stärken und Erfolge, heben Ihre Schwächen oder Misserfolge jedoch selten hervor. Für Sie ist es wichtig, ein Bild des Erfolgs zu vermitteln.",
+      "Sie verfügen über eine ausgeprägte Fähigkeit, Ihr Verhalten an unterschiedliche Kontexte anzupassen, insbesondere wenn dies Ihrem Image oder Ihren Zielen dient. Manche Menschen bemerken Unterschiede darin, wie Sie zu Hause, bei der Arbeit oder in anderen Umfeldern auftreten.",
+      "Sie sind ein schneller Mensch und haben gewöhnlich wenig Geduld mit Personen, die Sie als langsam empfinden, insbesondere wenn deren Langsamkeit ein Ziel gefährden oder Ihr Image, das des Teams oder das des Unternehmens beeinträchtigen könnte."
+    ],
+    "E": [
+      "Die Aktivitäten, denen Sie nachgehen, und die Arbeit, die Sie verrichten, müssen eine Bedeutung haben, die über das bloße Überleben hinausgeht. Etwas nur aus Pflichtgefühl zu tun oder sinnfreien Routinen zu folgen, motiviert Sie nicht. Sie müssen spüren, dass Sie in Ihrer Einzigartigkeit wertgeschätzt werden.",
+      "Ihre Stimmung wechselt gewöhnlich leichter und schneller als bei den meisten Menschen. Sie können in einem Moment zufrieden und im nächsten niedergeschlagen sein, manchmal ohne den genauen Grund zu kennen.",
+      "Sie möchten sich nicht wie alle anderen fühlen. Sie schätzen es, in irgendeiner Hinsicht anders zu sein, empfinden sich dadurch als etwas Besonderes und ziehen auf die eine oder andere Weise die Aufmerksamkeit anderer auf sich.",
+      "Manche Menschen empfinden Sie als emotional dramatisch. Sie empfinden intensive Gefühle, auch wenn Sie diese nicht immer zeigen, und ziehen sich bei deren Aufkommen in Ihre innere Welt zurück. In der Regel glauben Sie, dass die anderen diese Art zu fühlen gut nachvollziehen können.",
+      "Häufig idealisieren Sie eine Situation, bevor sie eintritt — sei es eine Reise oder eine Beziehung. Wenn die Erfahrung dann konkret wird, entspricht sie oft nicht dem, was Sie sich vorgestellt haben, und Ihr Verlangen kann rasch schwinden, sobald Sie das Gewünschte erreicht haben."
+    ],
+    "F": [
+      "Sie sind ein rationaler und analytischer Mensch. Sie sind überzeugt, dass gute Entscheidungen auf logischer Analyse und Intelligenz beruhen, und neigen dazu, sehr emotionale oder übertriebene Reaktionen als Beeinträchtigung der Entscheidungsqualität zu betrachten.",
+      "Sie schätzen es, sich täglich etwas Zeit allein zu nehmen, um nachzudenken und neue Energie zu schöpfen. Manche Menschen deuten dies als Isolation, doch diese Momente der Zurückgezogenheit tun Ihnen gut.",
+      "Sie schätzen Wissen, Wissenschaft und Informationen sehr. Sie streben beständig danach, durch Lesen, Studium, Forschung und Reflexion zu lernen, und bewundern intelligente Menschen.",
+      "Sie möchten nicht, dass Ihr persönlicher Raum unangekündigt verletzt wird, und es stört Sie, wenn jemand zu nah kommt oder Sie beim Sprechen berührt. Ebenso meiden Sie Gespräche in zu lauter Tonlage sowie oberflächliche Themen mit Menschen, die Sie noch nicht kennen.",
+      "Sie lösen gerne Probleme, Rätsel und Knobelaufgaben, die logisches Denken erfordern. Sie sind neugierig darauf, wie die Dinge funktionieren, und finden Lösungen lieber eigenständig, bevor Sie andere um Hilfe bitten."
+    ],
+    "G": [
+      "Sie sind ein vorsichtiger Mensch und denken gewöhnlich vorausschauend über mögliche Szenarien nach. Vor einer Reise an einen neuen Ort schauen Sie beispielsweise lieber auf die Karte, machen sich mit der Strecke vertraut und planen vorausschauend, auch im Hinblick auf mögliche Zwischenfälle.",
+      "Für Sie ist es wichtig, Beweise zu sehen, bevor Sie etwas glauben. Manche Menschen halten Sie aufgrund dieser Forderung nach Belegen für skeptisch, und Sie erkennen gewöhnlich rasch Risiken und Schwächen in allzu optimistischen Ideen oder Vorhaben.",
+      "Sie brauchen Zeit, um Menschen zu vertrauen, und halten es für klug, deren Verhalten zu beobachten, insbesondere solange Sie jemanden noch nicht gut kennen. Selbst nach gewachsener Nähe verspüren Sie manchmal das Bedürfnis, sich zu vergewissern, dass alles in Ordnung ist.",
+      "Sie neigen dazu, angesichts der Möglichkeit, dass etwas schiefgehen könnte, Angst zu empfinden. Wenn Sie sich nicht ausreichend vorbereitet fühlen oder nicht die gewünschte Vorbereitungszeit haben, wächst Ihre Besorgnis, und Gedanken wie „Was, wenn das passiert?“ kehren wiederholt zurück.",
+      "Sie zweifeln gewöhnlich an der eigenen Kompetenz, auch wenn andere Ihre Fähigkeit anerkennen. Manchmal suchen Sie die Bestätigung, auf dem richtigen Weg zu sein, und hinterfragen Ihre Leistungsfähigkeit, wenn Sie eine Führungsposition übernehmen."
+    ],
+    "H": [
+      "Sie schätzen Neuheiten und Abenteuer. Sie lernen lieber Vielfältiges und Innovatives, sind neuen Trends gegenüber aufgeschlossen und halten unterschiedlichste Lebenserfahrungen für wichtig. Für Sie gilt: Je mehr Erfahrungen, desto besser.",
+      "Es ist für Sie entscheidend, das zu mögen, was Sie tun — auch bei der Arbeit. Sie versuchen, Vergnügen, Freizeit und Spaß in Ihren Alltag zu integrieren. Verliert eine Aufgabe ihren Reiz, neigen Sie dazu, sie aufzuschieben oder zugunsten von etwas Neuem fallen zu lassen.",
+      "Sie sind es gewohnt, mehrere Tätigkeiten gleichzeitig auszuführen. Es fällt Ihnen schwer, eine Aufgabe abzuschließen, bevor Sie die nächste beginnen, und Sie lesen, studieren oder bearbeiten häufig verschiedene Themen parallel.",
+      "Sie sind optimistisch und sehen gewöhnlich die positive Seite der Dinge. Ihnen sind sehr negative oder traurige Menschen unangenehm, weshalb Sie diese eher aufmuntern oder sich von ihnen zurückziehen. Manche finden, Sie sollten realistischer sein, doch Sie schätzen eine hoffnungsvolle und weite Perspektive.",
+      "Freiheit steht für Sie über allem. Sie hegen weniger Vorurteile und halten es für wichtig, dass jede Person selbst wählen kann, wie sie leben möchte. Sehr lange Verpflichtungen oder übermäßig abhängige Menschen können bei Ihnen ein Gefühl von Eingeschränktheit oder Unbehagen auslösen."
+    ],
+    "I": [
+      "Sie sind ein direkter Mensch und mögen keine Umschweife. Sie bevorzugen es, wenn andere auf den Punkt kommen. Ihr bestimmter und entschiedener Stil hat dazu geführt, dass einige Sie als aggressiv empfinden oder sich gekränkt fühlen; dennoch neigen Sie dazu, solche Reaktionen als übertrieben zu deuten.",
+      "Sie glauben, dass stärkere oder mächtigere Menschen Schwächere ausnutzen können. Sie empfinden dies als ungerecht und begeben sich manchmal in Konflikte, um diejenigen zu verteidigen, die Ihrer Meinung nach im Nachteil sind. Die anderen nehmen Sie gewöhnlich als starke und entschlossene Person wahr.",
+      "Sie hinterlassen bei den Mitmenschen Eindruck, auch wenn Sie dies nicht beabsichtigen. Ihr Stimmton ist von Natur aus laut, und manchmal deuten andere Ihre Äußerungen so, als würden Sie schreien, obwohl dies lediglich Ihre übliche Ausdrucksweise ist.",
+      "Sie neigen dazu, sofort zu handeln. Während andere noch nachdenken oder abwägen, ist Ihr Impuls, rasch zu beginnen. Manchmal kann diese Eile dazu führen, dass Sie andere übergehen, mit Wartezeiten ungeduldig umgehen oder etwas sagen oder tun, bevor Sie darüber nachgedacht haben.",
+      "Sie verspüren nicht das Bedürfnis, es allen recht zu machen. Sie sind sehr direkt und sagen gewöhnlich, was Sie für nötig halten — unabhängig davon, wie andere reagieren. Diese Haltung hat Ihnen in der Vergangenheit bereits Schwierigkeiten eingebracht."
+    ]
+  }
+}

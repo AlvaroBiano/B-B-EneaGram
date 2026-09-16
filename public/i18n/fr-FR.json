@@ -1,0 +1,136 @@
+{
+  "locale": "fr-FR",
+  "language_name": "Français (France)",
+  "flag": "🇫🇷",
+  "phone_placeholder": "06 12 34 56 78",
+  "phone_example": "06 12 34 56 78",
+  "ui": {
+    "title": "Test de personnalité – Ennéagramme",
+    "subtitle": "45 affirmations · 9 types · Découvrez votre tendance dominante",
+    "btn_admin": "🔐 Espace administrateur",
+    "label_name": "Nom complet",
+    "label_phone": "Téléphone portable (WhatsApp)",
+    "instructions_html": "Ce questionnaire contient 45 affirmations. Lisez chaque item calmement et attribuez-lui une note de 0 à 5, en tenant compte de la mesure dans laquelle l'affirmation décrit votre comportement habituel, dans diverses situations et au fil du temps. Plus la note est élevée, plus l'identification est forte : <strong>0</strong> = « ne me décrit pas » ; <strong>5</strong> = « me décrit totalement ». Répondez avec sincérité. L'interprétation vaut pour tout genre et indique des tendances relatives — il ne s'agit pas d'un diagnostic clinique.",
+    "scale_labels": {
+      "0": "ne me décrit pas",
+      "1": "me décrit à peine",
+      "2": "me décrit un peu",
+      "3": "me décrit",
+      "4": "me décrit beaucoup",
+      "5": "me décrit totalement"
+    },
+    "btn_view_result": "Voir le résultat",
+    "btn_generate_pdf": "📄 Générer le PDF du résultat",
+    "btn_refazer": "🔄 Refaire le test",
+    "btn_login": "Connexion",
+    "btn_logout": "Déconnexion",
+    "btn_delete_record": "🗑️ Supprimer",
+    "btn_save_profile": "Enregistrer les modifications",
+    "tab_registros": "📋 Registres",
+    "tab_perfil": "⚙️ Mon Profil",
+    "modal_confirm_title": "⚠️ Confirmation avant de voir le résultat",
+    "modal_confirm_p1": "Les données envoyées ne pourront plus être ajustées ni révisées.",
+    "modal_confirm_p2": "L'envoi d'un nouveau test n'invalidera pas la réponse initiale — chaque soumission génère un enregistrement indépendant dans la base de données.",
+    "modal_confirm_p3": "Souhaitez-vous poursuivre pour voir le résultat et générer le PDF ?",
+    "modal_confirm_yes": "Confirmer et voir le résultat",
+    "modal_confirm_no": "Annuler",
+    "modal_admin_title": "🔐 Espace Administrateur",
+    "modal_admin_login_label": "Identifiant (superadmin)",
+    "modal_admin_pass_label": "Mot de passe",
+    "modal_admin_user_placeholder": "Saisissez votre identifiant",
+    "modal_admin_pass_placeholder": "Saisissez votre mot de passe",
+    "modal_admin_login_button": "Se connecter",
+    "modal_admin_login_error": "Identifiant ou mot de passe incorrect",
+    "profile_form_login_label": "Identifiant actuel (lecture seule)",
+    "profile_form_current_pass_label": "Mot de passe actuel",
+    "profile_form_new_login_label": "Nouvel identifiant",
+    "profile_form_new_pass_label": "Nouveau mot de passe",
+    "profile_form_save_button": "Enregistrer les modifications",
+    "pdf_status_loading": "⏳ Génération du PDF en cours...",
+    "pdf_status_success": "✅ PDF généré et téléchargé !",
+    "pdf_status_error": "❌ Échec de la génération du PDF. Vérifiez que le serveur local est en cours d'exécution (node server.js).",
+    "pdf_required_name": "⚠️ Renseignez votre nom complet avant de générer le PDF.",
+    "pdf_required_test": "⚠️ Répondez au test et cliquez d'abord sur « Voir le résultat ».",
+    "progress_label": "{answered} / {total} répondues",
+    "result_section_title": "Vos Résultats",
+    "result_section_subtitle": "Analyse complète des 9 tendances de l'Ennéagramme",
+    "result_dominant_title": "Personnalité dominante",
+    "result_chart_title": "Graphique comparatif",
+    "result_table_title": "Tableau détaillé",
+    "result_legal_title": "Avertissement",
+    "result_legal_text": "Les scores indiquent des tendances relatives entre les types. Des résultats proches ou à égalité doivent être lus conjointement avec les réponses — et non comme un diagnostic. La classification est la même quel que soit le genre.",
+    "result_pdf_button_text": "📄 Générer le PDF du résultat",
+    "result_refazer_button_text": "🔄 Refaire le test",
+    "language_picker_label": "Langue :",
+    "language_picker_pt": "🇧🇷 Portugais",
+    "language_picker_en": "🇺🇸 Anglais",
+    "language_picker_fr": "🇫🇷 Français",
+    "language_picker_es": "🇪🇸 Espagnol",
+    "language_picker_de": "🇩🇪 Allemand"
+  },
+  "questions": {
+    "A": [
+      "La plupart des gens vous considèrent comme quelqu'un de paisible, qui s'entend bien avec presque tout le monde. Vous avez coutume d'écouter avec attention et de témoigner de la sympathie, y compris envers ceux que vous venez de rencontrer. Vous aimez converser et traiter les gens avec courtoisie.",
+      "Vous préférez prendre les décisions par consensus et jugez important d'écouter l'avis de toutes les personnes concernées. Négocier et servir de médiateur sont des aptitudes naturelles pour vous. Vous n'appréciez pas les décisions autoritaires et ce n'est pas non plus votre style habituel.",
+      "Sans planification, vous pouvez vous distraire facilement, même face à des tâches importantes. Un agenda vous aide à organiser vos priorités. Lorsque quelqu'un vous interrompt et vous demande de l'aide, vous avez du mal à dire « non » et vous pouvez finir par privilégier les demandes d'autrui, en vous surchargeant.",
+      "Vous valorisez le groupe et le travail en équipe. Vous préférez agir avec d'autres personnes que de tout faire de manière isolée et vous croyez que les victoires appartiennent au groupe. Vous ressentez un malaise lorsqu'on vous met en avant comme le meilleur de l'équipe.",
+      "Souvent, vous acceptez la décision des autres pour éviter les conflits. Même en mettant de côté vos propres désirs, vous parvenez à vous convaincre qu'ils ne sont pas si importants."
+    ],
+    "B": [
+      "Vous avez tendance à être critique envers vous-même et envers les autres et, en général, vous n'appréciez pas recevoir des critiques.",
+      "Vous aimez garder les choses organisées et à leur place. Le désordre a tendance à vous déranger, surtout lorsque quelqu'un touche à quelque chose que vous avez rangé.",
+      "Vous avez peu de tolérance aux erreurs, qu'elles soient les vôtres ou celles des autres, et vous avez tendance à vous blâmer lorsque vous commettez un impair.",
+      "Pour vous, il n'existe pas de travail « plus ou moins bien fait » : soit il est bien fait, soit il ne l'est pas. Vous jugez important de tout livrer avec un haut niveau de qualité et une grande attention aux détails.",
+      "Vous avez coutume de vous irriter contre les personnes irresponsables ou peu engagées. Pour vous, tenir ses engagements est une chose fondamentale."
+    ],
+    "C": [
+      "Vous aimez aider les gens, en particulier ceux qui comptent pour vous. Souvent, vous vous investissez au-delà du nécessaire pour les soutenir, les complimenter et reconnaître leurs qualités.",
+      "Vous vous investissez tellement pour les autres que, parfois, vous finissez par négliger vos propres soins. Le temps semble manquer pour répondre à vos propres besoins, et il vous est plus facile de percevoir et de satisfaire les besoins des autres.",
+      "Vous éprouvez de la difficulté à dire « non » à un proche qui a besoin de votre aide, car vous craignez de le blesser ou de la manière dont il interprétera votre refus.",
+      "Vous avez du mal à demander directement de la tendresse, de l'attention ou des cadeaux. Vous estimez que les gens devraient percevoir quand vous en avez besoin, tout comme vous cherchez à percevoir leurs besoins.",
+      "Vous êtes naturellement affectueux et attentionné et vous valorisez les relations personnelles, y compris dans le cadre du travail. Il vous arrive souvent de transformer des collègues en amis et d'endosser le rôle de conseiller ou de confident."
+    ],
+    "D": [
+      "Pour vous, il est important de participer à une compétition dans le but de gagner. Vous avez coutume de vous efforcer d'atteindre la victoire et vous accordez de la valeur au fait d'être reconnu pour vos réalisations. Votre orientation vers les résultats est élevée.",
+      "Vous avez coutume d'impressionner les gens par votre capacité à surmonter les défis et à obtenir des résultats rapidement. En général, vous atteignez vos objectifs et vous fixez des cibles ambitieuses.",
+      "Vous avez coutume de parler avec assurance de vos qualités et de vos réalisations, mais vous n'avez pas l'habitude de souligner vos points faibles ou vos échecs. Pour vous, il est important de renvoyer une image de réussite.",
+      "Vous avez une grande capacité à adapter votre comportement à différents contextes, en particulier lorsque cela favorise votre image ou vos objectifs. Certaines personnes peuvent percevoir des différences dans votre manière d'agir à la maison, au travail et dans d'autres environnements.",
+      "Vous êtes une personne rapide et vous avez coutume de manquer de patience avec ceux que vous jugez lents, en particulier lorsque cette lenteur peut nuire à un objectif ou affecter votre image, celle de l'équipe ou celle de l'entreprise."
+    ],
+    "E": [
+      "Les activités que vous menez et le travail que vous exercez doivent avoir un sens qui dépasse la simple survie. Faire quelque chose uniquement par obligation ou suivre des routines sans but ne vous motive pas. Vous avez besoin de sentir que vous êtes valorisé dans votre singularité.",
+      "Votre humeur a tendance à changer plus facilement et plus rapidement que celle de la plupart des gens. Vous pouvez être content à un moment et découragé l'instant d'après, parfois sans en comprendre exactement la raison.",
+      "Vous n'aimez pas vous sentir comme les autres. Vous appréciez d'être différent à quelque égard et vous vous sentez spécial pour cela, attirant d'une certaine manière l'attention des autres.",
+      "Certaines personnes vous considèrent émotionnellement dramatique. Vous ressentez des émotions intenses, même si vous ne les exprimez pas toujours, et vous avez tendance à vous replier sur votre monde intérieur lorsqu'elles surgissent. En général, vous pensez que les autres comprennent bien votre manière de ressentir.",
+      "Il vous arrive souvent d'idéaliser une situation avant qu'elle ne se produise, comme un voyage ou une relation. Lorsque l'expérience se concrétise, elle ne correspond souvent pas à ce que vous aviez imaginé, et votre désir peut diminuer peu après avoir obtenu ce que vous vouliez."
+    ],
+    "F": [
+      "Vous êtes une personne rationnelle et analytique. Vous estimez que les bonnes décisions dépendent d'une analyse logique et de l'intelligence, et avez tendance à considérer que des réactions trop émotionnelles ou exagérées peuvent compromettre la qualité des décisions.",
+      "Vous appréciez de vous réserver un peu de temps seul chaque jour pour réfléchir et récupérer des énergies. Certaines personnes peuvent interpréter cela comme de l'isolement, mais vous vous sentez bien dans ces moments de recueillement.",
+      "Vous accordez beaucoup de valeur à la connaissance, à la science et à l'information. Vous cherchez à apprendre en continu par la lecture, l'étude, la recherche et la réflexion, et vous admirez les personnes intelligentes.",
+      "Vous n'aimez pas que votre espace personnel soit envahi sans prévenir, et cela vous dérange lorsque quelqu'un se rapproche trop ou vous touche en parlant. Vous préférez également éviter les conversations au ton excessivement élevé ou les sujets superficiels avec des gens que vous ne connaissez pas encore.",
+      "Vous aimez résoudre des problèmes, des énigmes et des casse-têtes qui demandent de la réflexion. Vous êtes curieux de comprendre comment les choses fonctionnent et préférez trouver des solutions par vous-même avant de demander de l'aide."
+    ],
+    "G": [
+      "Vous êtes une personne prévoyante et avez coutume de réfléchir à l'avance aux possibilités. Avant de voyager vers un lieu inconnu, par exemple, vous préférez consulter la carte, connaître le parcours et vous organiser, y compris en envisageant d'éventuels imprévus.",
+      "Pour vous, il est important de voir des preuves avant de croire. Certaines personnes vous jugent sceptique parce que vous exigez des preuves, et vous avez coutume d'identifier rapidement les risques et les problèmes dans des idées ou des projets trop optimistes.",
+      "Vous prenez du temps pour faire confiance aux gens et jugez prudent d'observer leur comportement, surtout lorsque vous ne les connaissez pas encore bien. Même après avoir créé des liens, vous ressentez parfois le besoin de vérifier que tout va bien.",
+      "Vous avez tendance à ressentir de l'anxiété face à la possibilité que quelque chose tourne mal. Lorsque vous ne vous jugez pas suffisamment préparé ou ne disposez pas du temps souhaité pour vous préparer, votre inquiétude augmente et surgissent des pensées récurrentes, comme « Et si cela arrivait ? »",
+      "Vous avez coutume de douter de votre propre compétence, même lorsque les autres reconnaissent votre capacité. Parfois, vous cherchez à obtenir la confirmation que vous êtes sur la bonne voie et pouvez remettre en question votre performance lorsque vous assumez une position d'autorité."
+    ],
+    "H": [
+      "Vous appréciez les nouveautés et les aventures. Vous préférez apprendre des choses différentes et innovantes, gardez l'esprit ouvert aux nouvelles tendances et jugez important de vivre des expériences variées. Pour vous, plus il y a d'expériences, mieux c'est.",
+      "Il est essentiel pour vous d'aimer ce que vous faites, y compris au travail. Vous cherchez à maintenir du plaisir, des loisirs et de la diversion dans votre quotidien. Lorsqu'une tâche cesse d'être agréable, vous avez tendance à la reporter ou à l'abandonner pour entamer autre chose.",
+      "Vous avez l'habitude de mener plusieurs activités de front. Vous éprouvez des difficultés lorsque vous devez terminer une tâche avant d'en commencer une autre et avez coutume de lire, d'étudier ou de traiter des sujets différents simultanément.",
+      "Vous êtes optimiste et avez coutume de voir le côté positif des situations. Vous ressentez un malaise face aux personnes très négatives ou tristes et avez tendance à les égayer ou à vous éloigner. Certaines personnes pensent que vous devriez être plus réaliste, mais vous accordez de la valeur au fait de garder une vision pleine d'espoir et ouverte.",
+      "Vous valorisez la liberté par-dessus tout. Vous avez tendance à avoir moins de préjugés et jugez important que chacun puisse choisir comment vivre. Des engagements trop longs ou des personnes excessivement dépendantes peuvent vous donner le sentiment d'être limité ou mal à l'aise."
+    ],
+    "I": [
+      "Vous êtes une personne directe et n'aimez pas les détours. Vous préférez que les gens aillent droit au but. Votre style assertif et ferme a déjà conduit certains à vous considérer comme agressif ou à se sentir offensés ; pourtant, vous avez tendance à interpréter ces réactions comme exagérées.",
+      "Vous croyez que les personnes plus fortes ou plus puissantes peuvent abuser des plus vulnérables. Vous jugez cela injuste et, parfois, vous vous engagez dans des conflits pour défendre ceux que vous estimez en position de faiblesse. Les autres ont coutume de vous percevoir comme une personne forte et déterminée.",
+      "Vous produisez un impact sur les gens même sans en avoir l'intention. Votre ton de voix est naturellement élevé et, parfois, les autres interprètent votre parole comme si vous criez, alors que ce n'est que votre manière habituelle de vous exprimer.",
+      "Vous avez tendance à agir sur-le-champ. Alors que d'autres personnes sont encore en train de réfléchir ou d'analyser, votre impulsion est de commencer — et vite. Parfois, cette hâte peut vous faire brusquer les autres, vous impatienter face aux attentes ou dire et faire quelque chose avant d'avoir réfléchi.",
+      "Vous ne ressentez pas le besoin de plaire à tout le monde. Vous êtes très franc et avez tendance à dire ce que vous jugez nécessaire, indépendamment de la réaction des autres. Cette posture vous a déjà causé des difficultés par le passé."
+    ]
+  }
+}

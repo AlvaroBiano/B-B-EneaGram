@@ -1,0 +1,136 @@
+{
+  "locale": "en-US",
+  "language_name": "English (United States)",
+  "flag": "🇺🇸",
+  "phone_placeholder": "(000) 000-0000",
+  "phone_example": "(555) 123-4567",
+  "ui": {
+    "title": "Personality Test – Enneagram",
+    "subtitle": "45 statements · 9 types · Discover your dominant tendency",
+    "btn_admin": "🔐 Admin area",
+    "label_name": "Full name",
+    "label_phone": "Mobile phone (WhatsApp)",
+    "instructions_html": "This questionnaire contains 45 statements. Read each item carefully and assign a score from 0 to 5, considering how well the statement describes your usual behavior across different situations and over time. The higher the score, the stronger the identification: <strong>0</strong> = \"does not describe me\"; <strong>5</strong> = \"describes me completely\". Answer honestly. The interpretation applies to any gender and indicates relative tendencies — it is not a clinical diagnosis.",
+    "scale_labels": {
+      "0": "does not describe me",
+      "1": "barely describes me",
+      "2": "describes me a little",
+      "3": "describes me",
+      "4": "describes me well",
+      "5": "describes me completely"
+    },
+    "btn_view_result": "View result",
+    "btn_generate_pdf": "📄 Generate result PDF",
+    "btn_refazer": "🔄 Retake test",
+    "btn_login": "Log in",
+    "btn_logout": "Log out",
+    "btn_delete_record": "🗑️ Delete",
+    "btn_save_profile": "Save changes",
+    "tab_registros": "📋 Records",
+    "tab_perfil": "⚙️ My Profile",
+    "modal_confirm_title": "⚠️ Confirmation before viewing your result",
+    "modal_confirm_p1": "The answers you submit cannot be adjusted or reviewed afterwards.",
+    "modal_confirm_p2": "Submitting a new test will not invalidate your original response — each submission creates an independent record in the database.",
+    "modal_confirm_p3": "Do you want to proceed to view your result and generate the PDF?",
+    "modal_confirm_yes": "Confirm and view result",
+    "modal_confirm_no": "Cancel",
+    "modal_admin_title": "🔐 Admin Area",
+    "modal_admin_login_label": "Login (superadmin)",
+    "modal_admin_pass_label": "Password",
+    "modal_admin_user_placeholder": "Enter your login",
+    "modal_admin_pass_placeholder": "Enter your password",
+    "modal_admin_login_button": "Log in",
+    "modal_admin_login_error": "Incorrect login or password",
+    "profile_form_login_label": "Current login (read-only)",
+    "profile_form_current_pass_label": "Current password",
+    "profile_form_new_login_label": "New login",
+    "profile_form_new_pass_label": "New password",
+    "profile_form_save_button": "Save changes",
+    "pdf_status_loading": "⏳ Generating PDF...",
+    "pdf_status_success": "✅ PDF generated and downloaded!",
+    "pdf_status_error": "❌ Failed to generate PDF. Check whether the local server is running (node server.js).",
+    "pdf_required_name": "⚠️ Please enter your full name before generating the PDF.",
+    "pdf_required_test": "⚠️ Complete the test and click \"View result\" first.",
+    "progress_label": "{answered} / {total} answered",
+    "result_section_title": "Your Results",
+    "result_section_subtitle": "Complete analysis of the 9 Enneagram tendencies",
+    "result_dominant_title": "Dominant personality",
+    "result_chart_title": "Comparative chart",
+    "result_table_title": "Detailed table",
+    "result_legal_title": "Notice",
+    "result_legal_text": "The scores indicate relative tendencies among the types. Close or tied results should be read together with your responses — not as a diagnosis. The classification is the same for any gender.",
+    "result_pdf_button_text": "📄 Generate result PDF",
+    "result_refazer_button_text": "🔄 Retake test",
+    "language_picker_label": "Language:",
+    "language_picker_pt": "🇧🇷 Português",
+    "language_picker_en": "🇺🇸 English",
+    "language_picker_fr": "🇫🇷 Français",
+    "language_picker_es": "🇪🇸 Español",
+    "language_picker_de": "🇩🇪 Deutsch"
+  },
+  "questions": {
+    "A": [
+      "Most people see you as someone peaceful who gets along well with almost everyone. You usually listen attentively and show warmth, even with people you have just met. You enjoy conversation and treat others with courtesy.",
+      "You prefer to reach decisions by consensus and consider it important to hear everyone involved. Negotiating and mediating come naturally to you. You do not appreciate authoritarian decisions, and that is generally not your style either.",
+      "Without planning, you tend to get distracted easily, even when facing important tasks. A schedule helps you organize your priorities. When someone interrupts you and asks for help, you find it hard to say \"no\" and may end up putting other people's demands first, overloading yourself.",
+      "You value the group and teamwork. You prefer to work with others rather than handle everything on your own, and you believe that wins belong to the team. You feel uncomfortable when you are singled out as the best on the team.",
+      "You often accept other people's decisions to avoid conflict. Even when you set your own desires aside, you manage to convince yourself that they are not that important."
+    ],
+    "B": [
+      "You tend to be critical of yourself and of other people, and you generally do not appreciate receiving criticism.",
+      "You like to keep things organized and in their proper place. Disorder usually bothers you, especially when someone touches something you have arranged.",
+      "You have little tolerance for mistakes, whether your own or others', and you tend to blame yourself when you slip up.",
+      "For you, there is no \"so-so\" work: either it is well done, or it is not done. You consider it important to deliver everything with a high standard of quality and close attention to detail.",
+      "You tend to get annoyed with irresponsible or uncommitted people. For you, keeping your commitments is fundamental."
+    ],
+    "C": [
+      "You enjoy helping people, especially those who are important to you. You often go beyond what is necessary to support them, praise them, and recognize their qualities.",
+      "You devote yourself so much to others that you sometimes end up neglecting your own care. There never seems to be enough time for your own needs, and it is easier for you to notice and meet other people's needs.",
+      "You find it hard to say \"no\" to someone close to you who needs your help, because you worry about hurting that person or about how they will interpret your refusal.",
+      "You find it difficult to ask directly for affection, attention, or gifts. You believe people should notice when you need these things, just as you try to notice theirs.",
+      "You are naturally affectionate and attentive, and you value personal relationships, including at work. You often turn coworkers into friends and take on the role of advisor or confidant."
+    ],
+    "D": [
+      "For you, it is important to enter a competition with the goal of winning. You usually put in the effort to achieve victory and value being recognized for your accomplishments. Your focus on results is strong.",
+      "You often impress people with your ability to overcome challenges and achieve results quickly. You generally reach your goals and set ambitious targets.",
+      "You usually speak confidently about your qualities and accomplishments, but you tend not to highlight your weaknesses or failures. For you, it is important to project an image of success.",
+      "You have a great ability to adapt your behavior to different settings, especially when it favors your image or your goals. Some people may notice differences in how you act at home, at work, and in other environments.",
+      "You are a fast-paced person and tend to have little patience with those you see as slow, especially when that slowness can jeopardize a goal or affect your image, your team's, or the company's."
+    ],
+    "E": [
+      "The activities you do and the work you do need to carry a meaning that goes beyond simple survival. Doing something only out of obligation or following routines without purpose does not motivate you. You need to feel valued for your uniqueness.",
+      "Your mood tends to shift more easily and quickly than most people's. You may feel content one moment and down the next, sometimes without understanding exactly why.",
+      "You do not like feeling the same as everyone else. You value being different in some way and feel special because of it, drawing other people's attention to you somehow.",
+      "Some people consider you emotionally dramatic. You feel intense emotions, even when you do not always show them, and you tend to turn inward when they arise. You generally believe that others understand this way of feeling well.",
+      "You often idealize a situation before it happens, such as a trip or a relationship. When the experience actually comes about, it often does not match what you imagined, and your desire can fade soon after you get what you wanted."
+    ],
+    "F": [
+      "You are a rational and analytical person. You believe that good decisions depend on logical analysis and intelligence, and you tend to think that overly emotional or exaggerated reactions can compromise the quality of decisions.",
+      "You appreciate setting aside some time alone each day to reflect and recharge. Some people may interpret that as isolation, but you feel good in these moments of withdrawal.",
+      "You value knowledge, science, and information highly. You seek to keep learning through reading, study, research, and reflection, and you admire intelligent people.",
+      "You do not like your personal space being invaded without warning, and you feel uncomfortable when someone gets too close or touches you while talking. You also prefer to avoid overly loud conversations or small talk with people you do not know well.",
+      "You enjoy solving problems, riddles, and puzzles that require reasoning. You are curious to understand how things work and prefer to find solutions on your own before asking for help."
+    ],
+    "G": [
+      "You are a cautious person and tend to think ahead about possibilities. Before traveling to a new place, for example, you prefer to check the map, learn the route, and plan, including for any unexpected events.",
+      "For you, it is important to see evidence before believing. Some people see you as skeptical because you require proof, and you usually spot risks and problems quickly in overly optimistic ideas or projects.",
+      "You take time to trust people and consider it wise to observe their behavior, especially when you do not know them well. Even after becoming close, you sometimes feel the need to check that everything is alright.",
+      "You tend to feel anxious at the thought that something might go wrong. When you do not feel prepared enough or do not have the time you want to prepare, your worry grows and recurring thoughts appear, such as \"What if this happens?\"",
+      "You tend to doubt your own competence, even when others recognize your ability. Sometimes you look for confirmation that you are on the right track and may question your performance when taking on a position of authority."
+    ],
+    "H": [
+      "You enjoy novelty and adventure. You prefer to learn different and innovative things, you keep an open mind about new trends, and you consider it important to have varied experiences. For you, the more experiences, the better.",
+      "It is essential for you to enjoy what you do, including at work. You try to keep pleasure, leisure, and fun in your routine. When a task stops being enjoyable, you tend to postpone it or drop it to start something new.",
+      "You are used to doing several things at the same time. You find it difficult when you have to finish one task before starting another, and you often read, study, or handle different matters at once.",
+      "You are optimistic and tend to see the positive side of situations. You feel uncomfortable around very negative or sad people and tend either to cheer them up or to step away. Some people think you should be more realistic, but you value keeping a hopeful and broad outlook.",
+      "You value freedom above all else. You tend to have fewer preconceptions and consider it important that each person can choose how to live. Very long commitments or overly dependent people can make you feel limited or uncomfortable."
+    ],
+    "I": [
+      "You are a direct person who do not like beating around the bush. You prefer people to get straight to the point. Your assertive and firm style has already led some to see you as aggressive or to feel offended; still, you tend to read those reactions as exaggerated.",
+      "You believe that stronger or more powerful people can take advantage of the more vulnerable. You see that as unfair and sometimes get into conflicts to defend those you consider to be at a disadvantage. Others usually see you as a strong and determined person.",
+      "You make an impact on people even without meaning to. Your tone of voice is naturally loud, and sometimes others read what you say as if you were shouting, even though that is simply your usual way of expressing yourself.",
+      "You tend to act right away. While others are still thinking or analyzing, your impulse is to start — and quickly. Sometimes that rush can make you run over others, grow impatient with waiting, or say and do something before thinking.",
+      "You do not feel the need to please everyone. You are very frank and tend to say what you consider necessary, regardless of how others will react. That posture has already caused you difficulties in the past."
+    ]
+  }
+}
