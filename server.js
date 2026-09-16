@@ -252,6 +252,24 @@ function buildResultHtml(r) {
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://localhost:${PORT}`);
 
+  // Servir arquivos estáticos (i18n.js e JSONs de tradução)
+  if (url.pathname === '/i18n.js' || url.pathname.startsWith('/i18n/')) {
+    try {
+      const filePath = path.join(PUBLIC_DIR, url.pathname);
+      const content = fs.readFileSync(filePath);
+      const ct = url.pathname.endsWith('.json') ? 'application/json; charset=utf-8' : 'application/javascript; charset=utf-8';
+      res.writeHead(200, {
+        'Content-Type': ct,
+        'Cache-Control': 'public, max-age=300'
+      });
+      res.end(content);
+    } catch (e) {
+      res.writeHead(404, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: 'Arquivo não encontrado' }));
+    }
+    return;
+  }
+
   // Servir index.html (front)
   if (url.pathname === '/' || url.pathname === '/index.html') {
     res.writeHead(200, {
