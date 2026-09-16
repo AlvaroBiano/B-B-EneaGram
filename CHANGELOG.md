@@ -6,6 +6,29 @@ O formato segue [Keep a Changelog](https://keepachangelog.com/) e este projeto a
 
 ---
 
+## [v2.0.1] — 2026-09-15 — 🐛 Fix i18n phone placeholder
+
+### 🐛 Bugfixes
+
+- **Phone placeholder por idioma** — bug no `i18n.js`: `phone_placeholder` estava sendo lido de `I18N_DATA.ui` mas a chave está em `I18N_DATA` (top-level). Corrigido para `I18N_DATA.phone_placeholder`. Agora o placeholder muda corretamente:
+  - pt-BR: `(00) 00000-0000`
+  - en-US: `(000) 000-0000`
+  - fr-FR: `06 12 34 56 78`
+  - es-ES: `(00) 00000 0000`
+  - de-DE: `(0170) 1234567`
+
+- **Mais textos traduzidos** — agora o frontend aplica:
+  - `scale_labels` (0-5 com labels traduzidos)
+  - `btn_delete_record` (botão Excluir na lista admin)
+  - `btn_generate_pdf`, `btn_refazer`, `btn_login`
+  - `progress_label` com placeholders `{answered}/{total}`
+  - `pdf_status_loading`, `pdf_status_success`, `pdf_status_error`
+  - `pdf_required_name`, `pdf_required_test`
+  - `modal_admin_login_error`
+- **`gerarPDF()` usa `window.__t()`** para mensagens traduzidas em vez de strings hardcoded
+
+---
+
 ## [v2.0.0] — 2026-09-15 — 🌍 Suporte multi-idioma
 
 ### ✨ Features
