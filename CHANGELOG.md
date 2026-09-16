@@ -6,6 +6,34 @@ O formato segue [Keep a Changelog](https://keepachangelog.com/) e este projeto a
 
 ---
 
+## [v2.0.0] — 2026-09-15 — 🌍 Suporte multi-idioma
+
+### ✨ Features
+
+- **5 idiomas completos**: Português (BR), English (US), Français (FR), Español (ES), Deutsch (DE)
+- **Backend i18n**: endpoints `GET /api/traducoes` (lista idiomas com bandeiras) e `GET /api/i18n/:locale` (retorna JSON do idioma)
+- **Frontend dinâmico**: arquivo `i18n.js` carrega o JSON, troca placeholder do telefone e textos da UI dinamicamente
+- **Seletor de idioma**: 5 botões com bandeiras no header, persistência em `localStorage` e suporte a `?lang=` na URL
+- **Fallback inteligente**: locale desconhecido (ex: `pt-br`, `en-GB`, `xx-YY`) cai pra pt-BR; reconhece família do idioma (`fr-ca` → `fr-FR`)
+- **Migração SQLite**: nova coluna `lingua` (default `pt-BR`)
+- **Lista admin mostra bandeira do idioma** usado pelo cliente (🇧🇷🇺🇸🇫🇷🇪🇸🇩🇪🌐)
+- **Cache de 1h** nos endpoints de tradução (cabeçalho `Cache-Control: public, max-age=3600`)
+- **Phone placeholders por idioma**:
+  - pt-BR: `(00) 00000-0000`
+  - en-US: `(000) 000-0000`
+  - fr-FR: `06 12 34 56 78`
+  - es-ES: `612 345 678`
+  - de-DE: `(0170) 1234567`
+
+### 🐛 Mudanças técnicas
+
+- `gerarPDF()` agora envia campo `lingua` no payload (registra idioma escolhido pelo cliente)
+- SELECT admin inclui `lingua` pra mostrar na lista
+- saveResult grava lingua no banco
+- Página `/api/traducoes` é cacheável (CDN-friendly)
+
+---
+
 ## [v1.0.0] — 2026-09-16 — 🎉 Versão inicial estável
 
 ### ✨ Features
