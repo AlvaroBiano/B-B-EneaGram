@@ -198,15 +198,14 @@
   }
 
   /* Bar chart */
-  .bar-chart { margin-top: 20px; }
+  .bar-chart { margin-top: 20px; display: flex; flex-direction: column; gap: 12px; }
   .bar-row {
     display: flex; align-items: center; gap: 12px;
-    margin-bottom: 12px;
-  }
-  .bar-label {
-    width: 120px; flex-shrink:0;
+  }  .bar-label {
+    width: 85px; flex-shrink:0;
     font-size: .85rem;
     text-align: right;
+    color: var(--text);
   }
   .bar-track {
     flex: 1; height: 28px;
@@ -330,7 +329,7 @@
     .admin-pagination .info { font-size: .7rem; padding: 0 4px; }
     .admin-profile-form { max-width: 100%; }
     .admin-profile-form input { font-size: .92rem; padding: 9px 12px; }
-    .bar-label { width: 130px; font-size: .78rem; }
+    .bar-label { width: 70px; font-size: .78rem; }
     .bar-pct { width: 40px; font-size: .8rem; }
     .bar-fill { padding-right: 4px; font-size: .72rem; }
   }
@@ -708,7 +707,7 @@ function calculate() {
     const pct = Math.round(r.pct * 100);
     const isDom = r.total === dominant.total;
     html += `<div class="bar-row">`;
-    html += `<div class="bar-label" style="${isDom?'font-weight:700;color:'+r.color:''}">Tipo ${r.num} — ${r.name}</div>`;
+    html += `<div class="bar-label" style="${isDom?'font-weight:700;color:'+r.color:''}">Tipo ${r.num} —</div>`;
     html += `<div class="bar-track">`;
     html += `<div class="bar-fill" style="width:${pct}%;background:${r.color};${isDom?'box-shadow:0 0 12px '+r.color+'66':''}">${r.total}</div>`;
     html += `</div>`;
